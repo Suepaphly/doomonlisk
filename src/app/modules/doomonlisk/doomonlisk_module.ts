@@ -17,7 +17,7 @@ require("emulators");
 const emulators = global.emulators;
 emulators.pathPrefix = "./";
 
-const bundle = fs.readFileSync("doom.jsdos");
+const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk/doom.jsdos");
 
 export class DoomonliskModule extends BaseModule {
     public actions = {
