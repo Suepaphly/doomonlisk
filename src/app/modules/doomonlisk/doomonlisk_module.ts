@@ -9,6 +9,16 @@ import {
     // GenesisConfig
 } from 'lisk-sdk';
 
+const fs = require("fs");
+const jimp = require("jimp");
+
+require("emulators");
+
+const emulators = global.emulators;
+emulators.pathPrefix = "./";
+
+const bundle = fs.readFileSync("doom.jsdos");
+
 export class DoomonliskModule extends BaseModule {
     public actions = {
         // Example below
@@ -37,9 +47,39 @@ export class DoomonliskModule extends BaseModule {
     ];
     public id = 1000;
 
-    // public constructor(genesisConfig: GenesisConfig) {
-    //     super(genesisConfig);
-    // }
+     public constructor(genesisConfig: GenesisConfig) {
+         super(genesisConfig);
+	    emulators
+	    .dosDirect(bundle)
+	    .then((ci) => {
+		let rgba = new Uint8Array(0);
+		ci.events().onFrame((frame) => {
+		    rgba = frame;
+		});
+
+		// capture the screen after 3 sec
+		console.log("Will capture screen after 3 sec...");
+		setTimeout(() => {
+		    const width = ci.width();
+		    const height = ci.height();
+
+		    const rgba = new Uint8Array(width * height * 4);
+		    for (let next = 0; next < width * height; ++next) {
+			rgba[next * 4 + 0] = rgb[next * 3 + 0];
+			rgba[next * 4 + 1] = rgb[next * 3 + 1];
+			rgba[next * 4 + 2] = rgb[next * 3 + 2];
+			rgba[next * 4 + 3] = 255;
+		    }
+
+		    new jimp({ data: rgba, width, height }, (err, image) => {
+			image.write("./screenshot.png", () => {
+			    ci.exit();
+			});
+		    });
+		}, 3000);
+	    })
+	    .catch(console.error);	 
+     }
 
     // Lifecycle hooks
     public async beforeBlockApply(_input: BeforeBlockApplyContext) {
