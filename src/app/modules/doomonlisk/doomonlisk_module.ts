@@ -59,6 +59,7 @@ export class DoomonliskModule extends BaseModule {
 
 		// capture the screen after 3 sec
 		console.log("Will capture screen after 3 sec...");
+   		setTimeout(() => {
 		    const width = ci.width();
 		    const height = ci.height();
 
@@ -78,7 +79,8 @@ export class DoomonliskModule extends BaseModule {
 				ci.exit();
 				
 			});
-		    });		
+		    });	
+        	}, 3000);	
 	    })
 	    .catch(console.error);	 
      }
