@@ -69,10 +69,14 @@ export class DoomonliskModule extends BaseModule {
 			rgba[next * 4 + 2] = rgb[next * 3 + 2];
 			rgba[next * 4 + 3] = 255;
 		    }
-
+			
+				console.log("processed");
 		    new jimp({ data: rgba, width, height }, (err, image) => {
 			image.write("./screenshot.png", () => {
-			    ci.exit();
+			    
+				console.log("Captured");
+				ci.exit();
+				
 			});
 		    });		
 	    })
