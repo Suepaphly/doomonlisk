@@ -5,5 +5,5 @@ import { playdoom } from "./plugins/playdoom/playdoom_plugin";
 // @ts-expect-error Unused variable error happens here until at least one module is registered
 export const registerPlugins = (_app: Application): void => {
   
-    app.registerPlugin(playdoom);
+    _app.registerPlugin(playdoom);
 };
