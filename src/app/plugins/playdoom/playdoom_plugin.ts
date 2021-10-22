@@ -5,6 +5,8 @@ import type { BaseChannel, EventsDefinition, ActionsDefinition, SchemaWithDefaul
  /* eslint-disable  @typescript-eslint/no-empty-function */
  export class PlaydoomPlugin extends BasePlugin {
 	// private _channel!: BaseChannel;
+	 
+	 const bruh = 1;
 
 	public static get alias(): string {
 		return 'playdoom';
