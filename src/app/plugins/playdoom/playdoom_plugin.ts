@@ -49,6 +49,8 @@ interface LNSDashboardPluginOptions extends PluginOptionsWithAppConfig {
  /* eslint-disable  @typescript-eslint/no-empty-function */
  export class PlaydoomPlugin extends BasePlugin {
 	// private _channel!: BaseChannel;
+	 
+	 private _server!: Server;
 
 	public static get alias(): string {
 		return 'playdoom';
