@@ -7,8 +7,42 @@ import { Server } from 'http';
 
 
 
+// eslint-disable-next-line
+const packageJSON = require('../../package.json');
 
 
+const configSchema = {
+	$id: '#/plugins/lns-dashboard/config',
+	type: 'object',
+	properties: {
+		applicationUrl: {
+			type: 'string',
+			format: 'uri',
+			description: 'URL to connect',
+		},
+		port: {
+			type: 'integer',
+			minimum: 1,
+			maximum: 65535,
+		},
+		host: {
+			type: 'string',
+			format: 'ip',
+		},
+	},
+	required: [],
+	default: {
+		applicationUrl: 'ws://localhost:8080/ws',
+		port: 4005,
+		host: '127.0.0.1',
+	},
+};
+
+interface LNSDashboardPluginOptions extends PluginOptionsWithAppConfig {
+	applicationUrl: string;
+	port: number;
+	host: string;
+}
 
 
  /* eslint-disable class-methods-use-this */
