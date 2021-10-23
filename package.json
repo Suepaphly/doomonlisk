@@ -25,14 +25,13 @@
 		"prepack": "oclif-dev manifest && oclif-dev readme --multi --dir=docs/commands && npm shrinkwrap && npm prune --production && npm shrinkwrap",
 		"prebuild": "if test -d dist; then rm -r dist; fi; rm -f tsconfig.tsbuildinfo; rm -f npm-shrinkwrap.json",
 		"start": "echo Run \"./bin/run start\" to start the app",
-		"build": "npm run build:node && npm run build:web", //altered from base
+		"build": "npm run build:node && npm run build:web", 
 		"test": "jest --passWithNoTests",
 		"test:coverage": "jest --passWithNoTests --coverage=true --coverage-reporters=text",
 		"test:ci": "jest --passWithNoTests --coverage=true --coverage-reporters=json --verbose",
 		"version": "oclif-dev readme --multi --dir=docs/commands && git add README.md docs",
-		"prepublishOnly": "npm ci && npm run lint && npm run build && npm run build:check", //altered from base
+		"prepublishOnly": "npm ci && npm run lint && npm run build && npm run build:check", 
 		
-		//added after
 		"clean": "./scripts/clean.sh",
 		"test:watch": "npm test -- --watch",
 		"test:unit": "jest --config=./test/unit/jest.config.js --coverage=true --coverage-reporters=json --verbose",
@@ -120,7 +119,7 @@
 		"tslib": "1.13.0",
 		"axios": "0.21.1",
 		
-		//added
+		
 		"express": "4.17.1",
 		"events": "3.3.0",
 		"react": "^17.0.1",
@@ -154,7 +153,7 @@
 		"ts-node": "9.1.1",
 		"typescript": "4.2.3",
 		
-		//added
+		
 		"@babel/core": "7.12.3",
 		"@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
 		"@svgr/webpack": "5.5.0",
