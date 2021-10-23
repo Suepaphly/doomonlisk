@@ -4,13 +4,6 @@ import * as express from 'express';
 import { join } from 'path';
 import { Server } from 'http';
 
-
-
-
-// eslint-disable-next-line
-const packageJSON = require('../../package.json');
-
-
 const configSchema = {
 	$id: '#/plugins/lns-dashboard/config',
 	type: 'object',
