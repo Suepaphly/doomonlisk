@@ -91,7 +91,27 @@ interface LNSDashboardPluginOptions extends PluginOptionsWithAppConfig {
 		public async load(_: BaseChannel): Promise<void> {
 		// this._channel = channel;
 		// this._channel.once('app:ready', () => {});
+		
+		const config = {
+			applicationUrl: this.options.applicationUrl,
+		};
+			
+		const app = express();
+		app.use(express.static(join(__dirname, '../../build')));
+		app.get('/api/config.json', (_req, res) => res.json(config));
+		this._server = app.listen(this.options.port, this.options.host);
 	}
 
-	public async unload(): Promise<void> {}
+	public async unload(): Promise<void> {
+	
+		await new Promise<void>((resolve, reject) => {
+			this._server.close(err => {
+				if (err) {
+					reject(err);
+					return;
+				}
+				resolve();
+			});
+		});
+	}
 }
