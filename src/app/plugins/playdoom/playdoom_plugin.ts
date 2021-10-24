@@ -5,7 +5,7 @@ import { join } from 'path';
 import { Server } from 'http';
 
 const configSchema = {
-	$id: '#/plugins/lns-dashboard/config',
+	$id: '#/plugins/playdoom/config',
 	type: 'object',
 	properties: {
 		applicationUrl: {
