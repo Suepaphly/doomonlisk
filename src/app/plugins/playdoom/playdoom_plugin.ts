@@ -5,7 +5,7 @@ import { join } from 'path';
 import { Server } from 'http';
 
 const configSchema = {
-	$id: '#/plugins/playdoom/config',
+	$id: '/plugins/playdoom/config',
 	type: 'object',
 	properties: {
 		applicationUrl: {
@@ -62,7 +62,7 @@ interface LNSDashboardPluginOptions extends PluginOptionsWithAppConfig {
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	public get defaults(): SchemaWithDefault {
 		return {
-			$id: '/plugins/plugin-playdoom/config',
+			$id: '/plugins/playdoom/config',
 			type: 'object',
 			properties: {},
 			required: [],
