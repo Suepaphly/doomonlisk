@@ -6,4 +6,10 @@ import { PlaydoomPlugin } from "./plugins/playdoom/playdoom_plugin";
 export const registerPlugins = (_app: Application): void => {
   
     _app.registerPlugin(PlaydoomPlugin);
+  	
+  
+  _app.overridePluginOptions(PlaydoomPlugin.alias, {
+		  applicationUrl: `ws://localhost:${app.config.rpc.port}/ws`,
+		  port: 8000,
+	  });
 };
