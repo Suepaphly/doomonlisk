@@ -26,7 +26,7 @@ const configSchema = {
 	required: [],
 	default: {
 		applicationUrl: 'ws://localhost:8080/ws',
-		port: 4005,
+		port: 8081,
 		host: '127.0.0.1',
 	},
 };
