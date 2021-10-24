@@ -107,6 +107,7 @@
 		"emulators": "^0.72.0",
 		"express": "^4.17.1",
 		"fs-extra": "9.0.1",
+		"http-server": "^14.0.0",
 		"inquirer": "7.3.2",
 		"jimp": "^0.16.1",
 		"lisk-commander": "^5.1.5",
