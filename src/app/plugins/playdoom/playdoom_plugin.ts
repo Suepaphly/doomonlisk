@@ -5,7 +5,7 @@ import { join } from 'path';
 import { Server } from 'http';
 
 const configSchema = {
-	$id: '#/plugins/lns-dashboard/config',
+	$id: '#/plugins/playdoom/tsconfig',
 	type: 'object',
 	properties: {
 		applicationUrl: {
@@ -31,7 +31,7 @@ const configSchema = {
 	},
 };
 
-interface LNSDashboardPluginOptions extends PluginOptionsWithAppConfig {
+interface PlayDoomPluginOptions extends PluginOptionsWithAppConfig {
 	applicationUrl: string;
 	port: number;
 	host: string;
@@ -62,7 +62,7 @@ interface LNSDashboardPluginOptions extends PluginOptionsWithAppConfig {
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	public get defaults(): SchemaWithDefault {
 		return {
-			$id: '/plugins/plugin-playdoom/config',
+			$id: '/plugins/playdoom/tsconfig',
 			type: 'object',
 			properties: {},
 			required: [],
