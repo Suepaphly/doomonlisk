@@ -9,7 +9,7 @@ export const registerPlugins = (_app: Application): void => {
   	
   
   _app.overridePluginOptions(PlaydoomPlugin.alias, {
-		  applicationUrl: `ws://localhost:${app.config.rpc.port}/ws`,
+		  applicationUrl: `ws://localhost:${_app.config.rpc.port}/ws`,
 		  port: 8000,
 	  });
 };
