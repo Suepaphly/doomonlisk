@@ -19,6 +19,39 @@ emulators.pathPrefix = "./";
 
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk/doom.jsdos");
 
+const ci = emulators
+	    .dosDirect(bundle)
+	    .then((ci) => {
+		let frameCount = 0;
+		let rgb = new Uint8Array(0);
+		ci.events().onFrame((frame) => {
+		   	rgb = frame;
+							
+			    const width = ci.width();
+			    const height = ci.height();
+
+			    const rgba = new Uint8Array(width * height * 4);
+			    for (let next = 0; next < width * height; ++next) {
+				rgba[next * 4 + 0] = rgb[next * 3 + 0];
+				rgba[next * 4 + 1] = rgb[next * 3 + 1];
+				rgba[next * 4 + 2] = rgb[next * 3 + 2];
+				rgba[next * 4 + 3] = 255;
+			    }
+
+			    new jimp({ data: rgba, width, height }, (err, image) => {
+				image.write("./src/app/build/screens/screenshot0.png", () => {
+
+					console.log(frameCount); // publish frame event
+
+				});
+			    });		
+			frameCount++;
+			return ci;
+		});
+		    
+	    })
+	    .catch(console.error);	 
+
 export class DoomonliskModule extends BaseModule {
     public actions = {
         // Example below
@@ -49,41 +82,7 @@ export class DoomonliskModule extends BaseModule {
 
      public constructor(genesisConfig: GenesisConfig) {
          super(genesisConfig);
-	    emulators
-	    .dosDirect(bundle)
-	    .then((ci) => {
-		let frameCount = 0;
-		let rgb = new Uint8Array(0);
-		ci.events().onFrame((frame) => {
-		   	rgb = frame;
-							
-			    const width = ci.width();
-			    const height = ci.height();
-
-			    const rgba = new Uint8Array(width * height * 4);
-			    for (let next = 0; next < width * height; ++next) {
-				rgba[next * 4 + 0] = rgb[next * 3 + 0];
-				rgba[next * 4 + 1] = rgb[next * 3 + 1];
-				rgba[next * 4 + 2] = rgb[next * 3 + 2];
-				rgba[next * 4 + 3] = 255;
-			    }
-
-			    new jimp({ data: rgba, width, height }, (err, image) => {
-				image.write("./src/app/build/screens/screenshot0.png", () => {
-
-					console.log(frameCount); // publish frame event
-
-				});
-			    });		
-			frameCount++;
-		});
-		    
-		    
-
-			
-		    
-	    })
-	    .catch(console.error);	 
+	  
      }
 
     // Lifecycle hooks
