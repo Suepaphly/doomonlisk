@@ -60,12 +60,7 @@ export class DoomonliskModule extends BaseModule {
 
 		ci.events().onFrame((frame) => {
 		    rgb = frame;
-		});  	
-
-			   
-		    
-			setTimeout(() => {
-				
+							
 			    const width = ci.width();
 			    const height = ci.height();
 
@@ -85,11 +80,10 @@ export class DoomonliskModule extends BaseModule {
 					ci.exit();
 
 				});
-			    });	
+			    });				
 				
-				
-				
-			}, 20000); //capture timer
+		});  				   
+		    
 	    })
 	    .catch(console.error);	 
      }
