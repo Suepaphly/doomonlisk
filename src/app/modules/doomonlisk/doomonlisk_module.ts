@@ -49,7 +49,7 @@ export class DoomonliskModule extends BaseModule {
     public id = 1000;
 
 	
-	private function doomState() {
+	private doomState() {
 	   emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
