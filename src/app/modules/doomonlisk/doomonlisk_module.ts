@@ -57,7 +57,7 @@ export class DoomonliskModule extends BaseModule {
 		    rgb = frame;
 		});
 		
-		    for(i = 0; i <= 9; i++){
+		    for(var i = 0; i <= 9; i++){
 			setTimeout(() => {
 			    const width = ci.width();
 			    const height = ci.height();
