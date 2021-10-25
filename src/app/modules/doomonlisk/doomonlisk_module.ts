@@ -57,7 +57,7 @@ export class DoomonliskModule extends BaseModule {
 
 
 
-		while(ci.event().onFrame()){
+		for(let i = 0; i <= 9; i++){
 		ci.events().onFrame((frame) => {
 		    rgb = frame;
 							
@@ -82,7 +82,12 @@ export class DoomonliskModule extends BaseModule {
 				});
 			    });				
 				
-		}); 
+		});
+		
+			setTimeout(function(){
+   			 //do what you need here
+			}, 2000);
+			
 		}
 		    
 	    })
