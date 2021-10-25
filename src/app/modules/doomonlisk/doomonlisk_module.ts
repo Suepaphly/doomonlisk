@@ -49,7 +49,17 @@ export class DoomonliskModule extends BaseModule {
     public id = 1000;
 
 	
-	public function doomState() {
+	
+	
+	
+	
+     public constructor(genesisConfig: GenesisConfig) {
+         super(genesisConfig);
+	   doomState();
+     }
+
+	
+	doomState(): void { };
 	   emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
@@ -88,14 +98,6 @@ export class DoomonliskModule extends BaseModule {
 	}
 	
 	
-	
-	
-	
-     public constructor(genesisConfig: GenesisConfig) {
-         super(genesisConfig);
-	   doomState();
-     }
-
     // Lifecycle hooks
     public async beforeBlockApply(_input: BeforeBlockApplyContext) {
         // Get any data from stateStore using block info, below is an example getting a generator
