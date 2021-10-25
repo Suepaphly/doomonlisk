@@ -59,7 +59,7 @@ export class DoomonliskModule extends BaseModule {
      }
 
 	
-	doomState(): void { };
+	doomState(): void { 
 	   emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
@@ -95,7 +95,7 @@ export class DoomonliskModule extends BaseModule {
 		    
 	    })
 	    .catch(console.error);	 
-	}
+	};
 	
 	
     // Lifecycle hooks
