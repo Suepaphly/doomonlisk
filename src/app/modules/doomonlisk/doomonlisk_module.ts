@@ -56,7 +56,8 @@ export class DoomonliskModule extends BaseModule {
 		let rgb = new Uint8Array(0);
 
 		ci.events().onFrame((frame) => {
-		    rgb = frame;
+			setTimeout(function(){
+		   	rgb = frame;
 							
 			    const width = ci.width();
 			    const height = ci.height();
@@ -76,7 +77,8 @@ export class DoomonliskModule extends BaseModule {
 					console.log("Captured0");
 
 				});
-			    });				
+			    });		
+			}, 200);
 				
 		});
 		    
