@@ -81,10 +81,7 @@ export class DoomonliskModule extends BaseModule {
 		});
 		
 			setTimeout(function(){
-   			 //do what you need here
-			}, 2000);
-			
-		    ci.events().onFrame((frame) => {
+   			 		    ci.events().onFrame((frame) => {
 		    rgb = frame;
 							
 			    const width = ci.width();
@@ -100,7 +97,7 @@ export class DoomonliskModule extends BaseModule {
 
 					console.log("processed");
 			    new jimp({ data: rgba, width, height }, (err, image) => {
-				image.write("./src/app/build/screens/screenshot0.png", () => {
+				image.write("./src/app/build/screens/screenshot1.png", () => {
 
 					console.log("Captured");
 
@@ -108,6 +105,9 @@ export class DoomonliskModule extends BaseModule {
 			    });				
 				
 		});
+			}, 2000);
+			
+
 		    
 					ci.exit();
 	    })
