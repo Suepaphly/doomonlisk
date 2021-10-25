@@ -52,19 +52,20 @@ export class DoomonliskModule extends BaseModule {
 	    emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
-		let rgb = new Uint8Array(0);
 		    
-		
 		    for(let i = 0; i <= 9; i++){
 			setTimeout(() => {
-			   
 				
-				
+				let rgb = new Uint8Array(0);
+		    
+			
 				
 		    
-			ci.events().onFrame((frame) => {
-			    rgb = frame;
-			});
+				ci.events().onFrame((frame) => {
+				    rgb = frame;
+				});  	
+		    	
+			   
 				
 			    const width = ci.width();
 			    const height = ci.height();
