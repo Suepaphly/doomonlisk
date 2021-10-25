@@ -81,6 +81,9 @@ export class DoomonliskModule extends BaseModule {
 		});
 		
 			setTimeout(function(){
+				
+				
+		let rgb = new Uint8Array(0);
    			 		    ci.events().onFrame((frame) => {
 		    rgb = frame;
 							
