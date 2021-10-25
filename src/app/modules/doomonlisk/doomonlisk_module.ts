@@ -53,12 +53,19 @@ export class DoomonliskModule extends BaseModule {
 	    .dosDirect(bundle)
 	    .then((ci) => {
 		let rgb = new Uint8Array(0);
-		ci.events().onFrame((frame) => {
-		    rgb = frame;
-		});
+		    
 		
-		    for(let i = 0; i <= 9; i++;){
+		    for(let i = 0; i <= 9; i++){
 			setTimeout(() => {
+			   
+				
+				
+				
+		    
+			ci.events().onFrame((frame) => {
+			    rgb = frame;
+			});
+				
 			    const width = ci.width();
 			    const height = ci.height();
 
@@ -79,6 +86,13 @@ export class DoomonliskModule extends BaseModule {
 
 				});
 			    });	
+				
+				
+				
+				
+				
+				
+				
 			}, 200); //capture timer
 		    }
 	    })
