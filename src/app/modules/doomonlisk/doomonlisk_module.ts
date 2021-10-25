@@ -57,7 +57,7 @@ export class DoomonliskModule extends BaseModule {
 
 
 
-		while(true){
+		while(ci.event().onFrame()){
 		ci.events().onFrame((frame) => {
 		    rgb = frame;
 							
