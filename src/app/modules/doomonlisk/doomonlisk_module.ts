@@ -79,39 +79,6 @@ export class DoomonliskModule extends BaseModule {
 			    });				
 				
 		});
-		
-			setTimeout(function(){
-				
-				
-		let rgb = new Uint8Array(0);
-   			 		    ci.events().onFrame((frame) => {
-		    rgb = frame;
-							
-			    const width = ci.width();
-			    const height = ci.height();
-
-			    const rgba = new Uint8Array(width * height * 4);
-			    for (let next = 0; next < width * height; ++next) {
-				rgba[next * 4 + 0] = rgb[next * 3 + 0];
-				rgba[next * 4 + 1] = rgb[next * 3 + 1];
-				rgba[next * 4 + 2] = rgb[next * 3 + 2];
-				rgba[next * 4 + 3] = 255;
-			    }
-
-					console.log("processed1");
-			    new jimp({ data: rgba, width, height }, (err, image) => {
-				image.write("./src/app/build/screens/screenshot1.png", () => {
-
-					console.log("Captured1");
-					ci.exit();
-
-				});
-			    });				
-				
-		});
-			}, 2000);
-			
-
 		    
 	    })
 	    .catch(console.error);	 
