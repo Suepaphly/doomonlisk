@@ -93,7 +93,7 @@ export class DoomonliskModule extends BaseModule {
 		return ci;
 			
 		    
-	    })
+	    });
 	    .catch(console.error);	 
 	};
 	
