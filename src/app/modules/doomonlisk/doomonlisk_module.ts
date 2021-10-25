@@ -52,17 +52,13 @@ export class DoomonliskModule extends BaseModule {
 	    emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
-				
+		let frameCount = 0;
 		let rgb = new Uint8Array(0);
 		ci.events().onFrame((frame) => {
 		   	rgb = frame;
 			
-				
-		});
-		    
-		    
-
-			setTimeout(function(){
+			while (frameCount < 10) {
+				setTimeout(function(){
 							
 			    const width = ci.width();
 			    const height = ci.height();
@@ -77,13 +73,20 @@ export class DoomonliskModule extends BaseModule {
 
 					console.log("processed0");
 			    new jimp({ data: rgba, width, height }, (err, image) => {
-				image.write("./src/app/build/screens/screenshot0.png", () => {
+				image.write("./src/app/build/screens/screenshot"+frameCount+".png", () => {
 
 					console.log("Captured0");
 
 				});
 			    });		
 			}, 5000);
+			frameCount++;
+			}
+		});
+		    
+		    
+
+			
 		    
 	    })
 	    .catch(console.error);	 
