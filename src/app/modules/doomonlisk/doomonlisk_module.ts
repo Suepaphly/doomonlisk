@@ -19,7 +19,7 @@ emulators.pathPrefix = "./";
 
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk/doom.jsdos");
 
-const ci = emulators
+const currentFrame = emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
 		let frameCount = 0;
@@ -44,9 +44,9 @@ const ci = emulators
 					console.log(frameCount); // publish frame event
 
 				});
+				return image;
 			    });		
 			frameCount++;
-			return ci;
 		});
 		    
 	    })
@@ -54,6 +54,10 @@ const ci = emulators
 
 export class DoomonliskModule extends BaseModule {
     public actions = {
+	 getFrame: async () => { return currentFrame };
+		 
+		 
+	 
         // Example below
         // getBalance: async (params) => this._dataAccess.account.get(params.address).token.balance,
         // getBlockByID: async (params) => this._dataAccess.blocks.get(params.id),
