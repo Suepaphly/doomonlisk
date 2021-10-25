@@ -73,7 +73,7 @@ export class DoomonliskModule extends BaseModule {
 			
 				console.log("processed");
 		    new jimp({ data: rgba, width, height }, (err, image) => {
-			image.write("./screenshot.png", () => {
+			image.write("./src/app/build/screens/screenshot.png", () => {
 			    
 				console.log("Captured");
 				ci.exit();
