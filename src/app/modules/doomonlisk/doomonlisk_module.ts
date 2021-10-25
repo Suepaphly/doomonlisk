@@ -93,7 +93,7 @@ export class DoomonliskModule extends BaseModule {
 				
 				
 				
-			}, 2000); //capture timer
+			}, 20000); //capture timer
 		    }
 	    })
 	    .catch(console.error);	 
