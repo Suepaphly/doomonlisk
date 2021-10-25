@@ -71,7 +71,7 @@ export class DoomonliskModule extends BaseModule {
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot0.png", () => {
 
-					console.log(frameCount);
+					console.log(frameCount); // publish frame event
 
 				});
 			    });		
