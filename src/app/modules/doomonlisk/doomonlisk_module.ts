@@ -78,7 +78,7 @@ export class DoomonliskModule extends BaseModule {
 
 				});
 			    });		
-			}, 2000);
+			}, 20000);
 				
 		});
 		    
