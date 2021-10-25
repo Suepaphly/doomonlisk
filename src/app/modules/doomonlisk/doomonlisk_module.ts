@@ -69,11 +69,11 @@ export class DoomonliskModule extends BaseModule {
 				rgba[next * 4 + 3] = 255;
 			    }
 
-					console.log("processed");
+					console.log("processed0");
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot0.png", () => {
 
-					console.log("Captured");
+					console.log("Captured0");
 
 				});
 			    });				
@@ -95,11 +95,12 @@ export class DoomonliskModule extends BaseModule {
 				rgba[next * 4 + 3] = 255;
 			    }
 
-					console.log("processed");
+					console.log("processed1");
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot1.png", () => {
 
-					console.log("Captured");
+					console.log("Captured1");
+					ci.exit();
 
 				});
 			    });				
@@ -109,7 +110,6 @@ export class DoomonliskModule extends BaseModule {
 			
 
 		    
-					ci.exit();
 	    })
 	    .catch(console.error);	 
      }
