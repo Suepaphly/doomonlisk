@@ -68,11 +68,10 @@ export class DoomonliskModule extends BaseModule {
 				rgba[next * 4 + 3] = 255;
 			    }
 
-					console.log("processed0");
 			    new jimp({ data: rgba, width, height }, (err, image) => {
-				image.write("./src/app/build/screens/screenshot"+frameCount+".png", () => {
+				image.write("./src/app/build/screens/screenshot0.png", () => {
 
-					console.log("Captured0");
+					console.log(frameCount);
 
 				});
 			    });		
