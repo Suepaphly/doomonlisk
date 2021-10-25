@@ -19,6 +19,7 @@ emulators.pathPrefix = "./";
 
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk/doom.jsdos");
 
+
 export class DoomonliskModule extends BaseModule {
     public actions = {
         // Example below
@@ -47,9 +48,9 @@ export class DoomonliskModule extends BaseModule {
     ];
     public id = 1000;
 
-     public constructor(genesisConfig: GenesisConfig) {
-         super(genesisConfig);
-	    emulators
+	
+	private function doomState() {
+	   emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
 		let frameCount = 0;
@@ -79,11 +80,20 @@ export class DoomonliskModule extends BaseModule {
 		});
 		    
 		    
-
+		return ci;
 			
 		    
 	    })
 	    .catch(console.error);	 
+	}
+	
+	
+	
+	
+	
+     public constructor(genesisConfig: GenesisConfig) {
+         super(genesisConfig);
+	   doomState();
      }
 
     // Lifecycle hooks
