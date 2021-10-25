@@ -57,7 +57,7 @@ export class DoomonliskModule extends BaseModule {
 		    rgb = frame;
 		});
 		
-		    for(i = 0; i <= 35; i++){
+		    for(i = 0; i <= 9; i++){
 			setTimeout(() => {
 			    const width = ci.width();
 			    const height = ci.height();
@@ -79,7 +79,7 @@ export class DoomonliskModule extends BaseModule {
 
 				});
 			    });	
-			}, 28); //capture timer
+			}, 200); //capture timer
 		    }
 	    })
 	    .catch(console.error);	 
