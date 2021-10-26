@@ -22,6 +22,30 @@ const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk
 	 
 
 export class DoomonliskModule extends BaseModule {
+    public accountSchema = {
+        type: 'object',
+        properties: {
+            helloMessage: {
+                fieldNumber: 1,
+                dataType: 'string',
+                minLength: 3,
+                maxLength: 64,
+            },
+        },
+        default: {
+            helloMessage: 'Hello World!',
+        },
+    };
+
+
+
+
+
+
+
+
+
+
     private currentFrame = 0;
 
     private emu = emulators
