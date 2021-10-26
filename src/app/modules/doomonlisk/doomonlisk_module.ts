@@ -54,7 +54,7 @@ const currentFrame = emulators
 
 export class DoomonliskModule extends BaseModule {
     public actions = {
-	getFrame: async () => {  }, 
+	getFrame: async () => { return "Banana"; }, 
 		 
 		 
 	 
