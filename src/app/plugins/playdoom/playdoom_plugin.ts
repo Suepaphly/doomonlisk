@@ -2,7 +2,7 @@ import { BasePlugin, PluginInfo, PluginOptionsWithAppConfig, EventsDefinition, A
 import type { BaseChannel, EventsDefinition, ActionsDefinition, SchemaWithDefault } from 'lisk-sdk';
 import * as express from 'express';
 import { join } from 'path';
-import { Server } from 'http';
+import { Server } from 'http'; //a comment
 
 const configSchema = {
 	$id: '#/plugins/playdoom/tsconfig',
