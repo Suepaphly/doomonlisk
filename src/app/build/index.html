@@ -6,14 +6,14 @@
 
 			let clientCache;
 
-			export const getClient = async () => {
+			const getClient = async () => {
 			    if (!clientCache) {
 				clientCache = await apiClient.createWSClient(RPC_ENDPOINT);
 			    }
 			    return clientCache;
 			};
 			
-			export const fetchFrame = async () => {
+			const fetchFrame = async () => {
 			    const client = await getClient();
 			    return client.invoke('doomonlisk:getFrame');
 			};
