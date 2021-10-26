@@ -22,8 +22,9 @@ const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk
 	 
 
 export class DoomonliskModule extends BaseModule {
-    var currentFrame;
-    const emu = emulators
+    private currentFrame = 0;
+
+    private emu = emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
 		let frameCount = 0;
