@@ -43,13 +43,9 @@ export class DoomonliskModule extends BaseModule {
 				rgba[next * 4 + 3] = 255;
 			    }
 
+                this.currentFramecurrentFrame = rgba;
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot0.png", () => {
-                    this.currentFramecurrentFrame = new ImageData(
-                        Uint8ClampedArray.from(image.bitmap.data),
-                        image.bitmap.width,
-                        image.bitmap.height
-                     );
 					console.log(frameCount); 
 				});
 				return image;
