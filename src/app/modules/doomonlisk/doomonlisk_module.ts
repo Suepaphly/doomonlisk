@@ -22,7 +22,8 @@ const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk
 	 
 
 export class DoomonliskModule extends BaseModule {
-    const currentFrame = emulators
+    var currentFrame;
+    const emu = emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
 		let frameCount = 0;
@@ -43,7 +44,11 @@ export class DoomonliskModule extends BaseModule {
 
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot0.png", () => {
-
+                    currentFrame = new ImageData(
+                        Uint8ClampedArray.from(image.bitmap.data),
+                        image.bitmap.width,
+                        image.bitmap.height
+                     );
 					console.log(frameCount); 
 				});
 				return image;
@@ -53,7 +58,7 @@ export class DoomonliskModule extends BaseModule {
 		    
 	    })
 	    .catch(console.error);
-        
+
     public actions = {
 	getFrame: async () => { return currentFrame; }, 
 		 
