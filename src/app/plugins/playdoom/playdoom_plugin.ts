@@ -85,7 +85,8 @@ interface PlayDoomPluginOptions extends PluginOptionsWithAppConfig {
 
 		public async load(channel: BaseChannel): Promise<void> {
 			this._channel = channel;
-			await console.log(this._channel.invoke('doomonlisk:getFrame')); 
+			let temp = await this._channel.invoke('doomonlisk:getFrame'); 
+			console.log(temp);
 	
 			
 		
