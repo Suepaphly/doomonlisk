@@ -23,7 +23,7 @@ const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk
 
 export class DoomonliskModule extends BaseModule {
 
-    
+
     private currentFrame = 0;
 
     private emu = emulators
@@ -45,7 +45,7 @@ export class DoomonliskModule extends BaseModule {
 				rgba[next * 4 + 3] = 255;
 			    }
 
-                //this.currentFramecurrentFrame = rgba;
+                this.currentFrame = rgba;
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot0.png", () => {
 					console.log(frameCount); 
