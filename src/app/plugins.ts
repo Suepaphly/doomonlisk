@@ -15,10 +15,6 @@ export const registerPlugins = (_app: Application): void => {
 	});
 
 
-	_app.registerPlugin(DashboardPlugin);  
-	_app.overridePluginOptions(DashboardPlugin.alias, {
-		applicationUrl: `ws://localhost:${_app.config.rpc.port}/ws`,
-		port: 8001,
-	});
+	_app.registerPlugin(DashboardPlugin); 
 
 };
