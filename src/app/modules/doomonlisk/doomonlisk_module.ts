@@ -45,7 +45,7 @@ export class DoomonliskModule extends BaseModule {
 
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot0.png", () => {
-                    currentFrame = new ImageData(
+                    this.currentFramecurrentFrame = new ImageData(
                         Uint8ClampedArray.from(image.bitmap.data),
                         image.bitmap.width,
                         image.bitmap.height
