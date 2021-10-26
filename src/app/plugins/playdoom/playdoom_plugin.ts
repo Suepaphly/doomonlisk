@@ -2,7 +2,7 @@ import { BasePlugin, PluginInfo, PluginOptionsWithAppConfig, EventsDefinition, A
 import type { BaseChannel, EventsDefinition, ActionsDefinition, SchemaWithDefault } from 'lisk-sdk';
 import * as express from 'express';
 import { join } from 'path';
-import { Server } from 'http'; //a comment
+import { Server } from 'http'; 
 
 const configSchema = {
 	$id: '#/plugins/playdoom/tsconfig',
@@ -44,6 +44,7 @@ interface PlayDoomPluginOptions extends PluginOptionsWithAppConfig {
 	// private _channel!: BaseChannel;
 	 
 	 private _server!: Server;
+	 private _channel!: BaseChannel;
 
 	public static get alias(): string {
 		return 'playdoom';
@@ -85,12 +86,9 @@ interface PlayDoomPluginOptions extends PluginOptionsWithAppConfig {
 
 		public async load(channel: BaseChannel): Promise<void> {
 			this._channel = channel;
-			for (let i=0; i<50; i++){
-			setTimeout(() => {
 			let temp = this._channel.invoke('doomonlisk:getFrame') 
 			console.log(temp)
-			}, 200);
-			}
+			
 			
 		
 		const config = {
