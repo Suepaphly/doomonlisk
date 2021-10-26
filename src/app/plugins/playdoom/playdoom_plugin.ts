@@ -84,24 +84,7 @@ interface PlayDoomPluginOptions extends PluginOptionsWithAppConfig {
 	}
 
 		public async load(channel: BaseChannel): Promise<void> {
-		this._channel = channel;
-			
-		this._channel.once('app:ready', async () => {
-			// Fetch and set forger list from the app
-			await this._setForgersList();
 
-			// Fetch and set transactions fees
-			await this._setTransactionFees();
-
-			// Sync the information
-			this._syncingWithNode = true;
-			await this._syncForgerInfo();
-			this._syncingWithNode = false;
-
-			// Listen to new block and delete block events
-			this._subscribeToChannel();
-			
-		  });
 	
 			
 		
