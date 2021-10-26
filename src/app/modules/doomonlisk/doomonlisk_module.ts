@@ -19,7 +19,10 @@ emulators.pathPrefix = "./";
 
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk/doom.jsdos");
 
-const currentFrame = emulators
+	 
+
+export class DoomonliskModule extends BaseModule {
+    const currentFrame = emulators
 	    .dosDirect(bundle)
 	    .then((ci) => {
 		let frameCount = 0;
@@ -41,8 +44,7 @@ const currentFrame = emulators
 			    new jimp({ data: rgba, width, height }, (err, image) => {
 				image.write("./src/app/build/screens/screenshot0.png", () => {
 
-					console.log(frameCount); // publish frame event
-
+					console.log(frameCount); 
 				});
 				return image;
 			    });		
@@ -50,9 +52,8 @@ const currentFrame = emulators
 		});
 		    
 	    })
-	    .catch(console.error);	 
-
-export class DoomonliskModule extends BaseModule {
+	    .catch(console.error);
+        
     public actions = {
 	getFrame: async () => { return currentFrame; }, 
 		 
