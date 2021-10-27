@@ -96,7 +96,7 @@ interface PlayDoomPluginOptions extends PluginOptionsWithAppConfig {
 		};
 			
 		const app = express();
-		app.use(express.static(join(__dirname, '../../build/react-app/public/')));
+		app.use(express.static(join(__dirname, '../../build/react-app/build/')));
 		app.get('/api/config.json', (_req, res) => res.json(config));
 		this._server = app.listen(this.options.port, this.options.host);
 	}
