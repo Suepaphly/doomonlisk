@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-const { apiClient } = require('lisk-sdk');
+import { apiClient } from 'lisk-sdk';
 let clientCache;
 
 const getClient = async () => {
@@ -13,7 +13,7 @@ const getClient = async () => {
 
 const apiRequest = async () => {
   const client = await getClient();
-
+  return client;
   /*
   const blockAtHeight123 = await client.block.getByHeight(123);
   client.subscribe('app:block:new', ( data ) => {
