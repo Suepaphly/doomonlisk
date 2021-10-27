@@ -6,18 +6,21 @@ let clientCache;
 
 const getClient = async () => {
     if (!clientCache) {
-        clientCache = await apiClient.createIPCClient('~/.lisk/my-app');
+        clientCache = await apiClient.createIPCClient('~/.lisk/doomonlisk');
     }
     return clientCache;
 };
 
 const apiRequest = async () => {
   const client = await getClient();
+
+  /*
   const blockAtHeight123 = await client.block.getByHeight(123);
   client.subscribe('app:block:new', ( data ) => {
     console.log("new block:",data);
   });
   return blockAtHeight123;
+  */
 };
 
 apiRequest().then((val) => {
