@@ -1,4 +1,4 @@
-import { apiClient, cryptography } from "@liskhq/lisk-client";
+import { apiClient } from "@liskhq/lisk-client";
 
 const RPC_ENDPOINT = process.env.REACT_APP_NODE;
 
@@ -14,12 +14,6 @@ export const getClient = async () => {
   return clientCache;
 };
 
-export const getAccount = async (address: string): Promise<Account | null> => {
-  // get account details based on Lisk (lsk) address
-  const client = await getClient();
-  const account = await client.account.get(
-    cryptography.getAddressFromBase32Address(address)
-  );
   // @ts-ignore
-  return account || null;
+  return null;
 };
