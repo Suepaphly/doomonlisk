@@ -1,10 +1,8 @@
 import { Typography } from "antd";
-import { useHistory } from "react-router";
 
 const { Title } = Typography;
 
 export default function Home() {
-  const history = useHistory();
 
   return (
       <div
