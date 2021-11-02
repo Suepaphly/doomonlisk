@@ -6,10 +6,6 @@ const { Title } = Typography;
 export default function Home() {
   const history = useHistory();
 
-  const goto = (location: string) => {
-    history.push(`/${location}`);
-  };
-
   return (
       <div
         style={{ textAlign: "center", marginTop: "6em", marginBottom: "6em" }}
