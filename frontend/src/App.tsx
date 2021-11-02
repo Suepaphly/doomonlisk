@@ -3,10 +3,8 @@ import Routes from "./Routes";
 import AppLayout from "./components/Layout";
 
 const App: React.FC = () => {
-  const [userInfo] = useState();
 
   return (
-    <UserContext.Provider value={{ userInfo }}>
       <AppLayout>
         <Routes />
       </AppLayout>
