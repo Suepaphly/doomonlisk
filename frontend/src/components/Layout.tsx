@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { Layout } from "antd";
-import { useHistory } from "react-router";
 
 const { Header, Content, Footer } = Layout;
 
 
 const AppLayout: React.FC = ({ children }) => {
-  const history = useHistory();
 
   return (
     <Layout>
