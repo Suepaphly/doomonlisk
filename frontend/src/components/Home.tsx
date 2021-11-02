@@ -1,7 +1,5 @@
-import { Row, Col, Typography, Divider, Button, Space, Card } from "antd";
-import { useEffect, useState } from "react";
+import { Typography } from "antd";
 import { useHistory } from "react-router";
-import * as api from "../utils/api";
 
 const { Title } = Typography;
 
