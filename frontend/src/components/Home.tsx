@@ -13,7 +13,6 @@ export default function Home() {
   };
 
   return (
-    <div>
       <div
         style={{ textAlign: "center", marginTop: "6em", marginBottom: "6em" }}
       >
