@@ -13,7 +13,3 @@ export const getClient = async () => {
   }
   return clientCache;
 };
-
-  // @ts-ignore
-  return null;
-};
