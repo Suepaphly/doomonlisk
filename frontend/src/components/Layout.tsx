@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Card, Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
-import { UserContext } from "../context/context";
 import { useHistory } from "react-router";
 import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
 
