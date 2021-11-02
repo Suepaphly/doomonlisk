@@ -38,7 +38,6 @@ const AppLayout: React.FC = ({ children }) => {
           border: "none",
         }}
       >
-        
       </Content>
       <Footer style={{ textAlign: "center" }}>
         Doom_on_Lisk
