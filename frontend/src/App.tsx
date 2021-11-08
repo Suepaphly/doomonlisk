@@ -10,7 +10,7 @@ const frameRefreshRate = 10000;
 
 const App: React.FC = () => {
   
-  const canvasRef = document.getElementById('myChart');
+  const canvasRef = document.getElementById('myImage');
   
 
   const [frame, setFrame] = useState([]);
@@ -45,7 +45,7 @@ const App: React.FC = () => {
   
   return (
       <AppLayout>
-         <canvas id="image" ref={canvasRef} {...frame}/>
+         <canvas id="myImage" ref={canvasRef} {...frame}/>
         <Routes />
       </AppLayout>
   );
