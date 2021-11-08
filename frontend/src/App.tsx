@@ -20,23 +20,25 @@ const App: React.FC = () => {
   }, []);
 
   
-  var canvas = document.createElement('canvas');
-  canvas.width = 150;
-  canvas.height = 180;
-  var ctx = canvas.getContext('2d');
+  
   
   
   const refreshFrame = async () => {
     const nextFrame = await api.getFrame();    
+    var canvas = document.createElement('canvas');
+    canvas.width = 150;
+    canvas.height = 180;
+    var ctx = canvas.getContext('2d');  
+    
 
-     new jimp({ nextFrame: rgba, width, height }, (err, image) => {
+     var frameData = new jimp({ nextFrame: rgba, width, height }, (err, image) => {
         image.write("../backend/src/app/build/screens/screenshot1.png", () => {
            console.log(frameCount); 
         });
-           this.nextFrame = image;
+           return = image;
         });		
     
-    const imageData = new ImageData(nextFrame);
+    const imageData = new ImageData(frameData);
     ctx.putImageData(imageData, 0, 0);
   };
   
