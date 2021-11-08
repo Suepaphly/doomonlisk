@@ -10,7 +10,7 @@ const frameRefreshRate = 10000;
 
 const App: React.FC = () => {
   
-  const canvasRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef(null);
   
   if(canvasRef.current){
     const canvas = canvasRef.current;
