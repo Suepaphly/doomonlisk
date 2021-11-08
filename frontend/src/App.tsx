@@ -30,7 +30,7 @@ const App: React.FC = () => {
     const nextFrame = await api.getFrame();    
 
      new jimp({ nextFrame: rgba, width, height }, (err, image) => {
-        image.write("./src/app/build/screens/screenshot0.png", () => {
+        image.write("../backend/src/app/build/screens/screenshot1.png", () => {
            console.log(frameCount); 
         });
            this.nextFrame = image;
