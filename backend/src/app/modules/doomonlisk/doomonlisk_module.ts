@@ -17,7 +17,7 @@ require("emulators");
 const emulators = global.emulators;
 emulators.pathPrefix = "./";
 
-const bundle = fs.readFileSync("/home/lisk/doomonlisk/src/app/modules/doomonlisk/doom.jsdos");
+const bundle = fs.readFileSync("/home/lisk/doomonlisk/backend/src/app/modules/doomonlisk/doom.jsdos");
 
 	 
 
