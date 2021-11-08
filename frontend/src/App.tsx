@@ -12,10 +12,6 @@ const App: React.FC = () => {
   
   const canvasRef = useRef(null);
   
-  if(canvasRef.current){
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-  }
 
   const [frame, setFrame] = useState([]);
 
@@ -35,6 +31,10 @@ const App: React.FC = () => {
   const RefreshFrame = async () => {
     const nextFrame = await api.getFrame();        
     
+    if(canvasRef.current){
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext('2d');
+    }
     
     const imageData = new ImageData(Uint8ClampedArray.from(nextFrame), 320, 200);
     ctx.putImageData(imageData, 0, 0);
