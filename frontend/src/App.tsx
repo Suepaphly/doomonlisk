@@ -1,5 +1,7 @@
 import Routes from "./Routes";
 import AppLayout from "./components/Layout";
+import * as api from "./utils/api";
+
 
 const App: React.FC = () => {
   
@@ -20,13 +22,21 @@ const App: React.FC = () => {
     setFrame(nextFrame);
   };
 
+export const getNextFrame = async () => {
 
+const client = await api.getClient();
+
+const frame = client.getFrame();
+
+  return frame;
+}
   
   
   
   
   return (
       <AppLayout>
+         {frame}
         <Routes />
       </AppLayout>
   );
