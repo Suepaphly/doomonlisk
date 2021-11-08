@@ -39,7 +39,7 @@ const App: React.FC = () => {
   
   return (
       <AppLayout>
-         {frame}
+         <canvas id="canvas"></canvas>
         <Routes />
       </AppLayout>
   );
