@@ -30,7 +30,7 @@ const App: React.FC = () => {
     canvas.height = 180;
     var ctx = canvas.getContext('2d');  
         
-    const imageData = new ImageData(nextFrame);
+    const imageData = new ImageData(nextFrame, 320, 200);
     ctx.putImageData(imageData, 0, 0);
   };
   
