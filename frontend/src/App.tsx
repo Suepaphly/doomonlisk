@@ -10,8 +10,7 @@ const frameRefreshRate = 10000;
 
 const App: React.FC = () => {
   
-  
-  const canvasRef = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef() as MutableRefObject<HTMLDivElement>;
   const canvas = canvasRef.current
   const ctx = canvas.getContext('2d')
 
