@@ -3,14 +3,14 @@ import AppLayout from "./components/Layout";
 import React, { useState, useEffect } from "react";
 import * as api from "./utils/api";
 
-
+const frameRefreshRate = 10000;
 
 const App: React.FC = () => {
   
   const [frame, setFrame] = useState([]);
 
   useEffect(() => {
-    const intervalId = setInterval(refreshFrame, statsRefreshRate);
+    const intervalId = setInterval(refreshFrame, frameRefreshRate);
     refreshStats();
 
     return () => {
