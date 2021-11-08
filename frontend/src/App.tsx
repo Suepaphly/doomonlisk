@@ -43,7 +43,7 @@ const App: React.FC = () => {
   
   return (
       <AppLayout>
-         <canvas ref={canvasRef} {frame}/>
+         <canvas ref={canvasRef} {...frame}/>
         <Routes />
       </AppLayout>
   );
