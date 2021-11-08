@@ -35,7 +35,7 @@ const App: React.FC = () => {
         image.write("../backend/src/app/build/screens/screenshot1.png", () => {
            console.log(frameCount); 
         });
-           return = image;
+           return image;
         });		
     
     const imageData = new ImageData(frameData);
