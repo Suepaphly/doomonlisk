@@ -18,11 +18,28 @@ const App: React.FC = () => {
     };
   }, []);
 
+  
+  var canvas = document.createElement('canvas');
+  canvas.width = 150;
+  canvas.height = 180;
+  var ctx = canvas.getContext('2d');
+  
+  
   const refreshFrame = async () => {
-    const nextFrame : string[] = await api.getFrame();    
+    const nextFrame = await api.getFrame();    
 
-    setFrame(nextFrame);
+     new jimp({ nextFrame: rgba, width, height }, (err, image) => {
+        image.write("./src/app/build/screens/screenshot0.png", () => {
+           console.log(frameCount); 
+        });
+           this.nextFrame = image;
+        });		
+    
+    const imageData = new ImageData(nextFrame);
+    ctx.putImageData(imageData, 0, 0);
   };
+  
+  
   
   
   return (
