@@ -13,8 +13,8 @@ const App: React.FC = () => {
   const [frame, setFrame] = useState([]);
 
   useEffect(() => {
-    const intervalId = setInterval(refreshFrame, frameRefreshRate);
-    refreshFrame();
+    const intervalId = setInterval(RefreshFrame, frameRefreshRate);
+    RefreshFrame();
 
     return () => {
       clearInterval(intervalId);
@@ -25,7 +25,7 @@ const App: React.FC = () => {
   
   
   
-  const refreshFrame = async () => {
+  const RefreshFrame = async () => {
     const nextFrame = await api.getFrame();        
     
     const canvasRef = useRef(null)
