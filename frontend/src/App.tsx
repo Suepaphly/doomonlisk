@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const intervalId = setInterval(refreshFrame, frameRefreshRate);
-    refreshStats();
+    refreshFrame();
 
     return () => {
       clearInterval(intervalId);
