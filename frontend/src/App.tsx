@@ -29,16 +29,8 @@ const App: React.FC = () => {
     canvas.width = 150;
     canvas.height = 180;
     var ctx = canvas.getContext('2d');  
-    
-
-     var frameData = new jimp({ nextFrame: rgba, width, height }, (err, image) => {
-        image.write("../backend/src/app/build/screens/screenshot1.png", () => {
-           console.log(frameCount); 
-        });
-           return image;
-        });		
-    
-    const imageData = new ImageData(frameData);
+        
+    const imageData = new ImageData(nextFrame);
     ctx.putImageData(imageData, 0, 0);
   };
   
