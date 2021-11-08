@@ -19,7 +19,7 @@ const App: React.FC = () => {
   }, []);
 
   const refreshFrame = async () => {
-    const nextFrame = await api.getFrame();    
+    const nextFrame : string[] = await api.getFrame();    
 
     setFrame(nextFrame);
   };
