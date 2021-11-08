@@ -3,10 +3,8 @@ import * as api from "../utils/api";
 
 
 export const getNextFrame = async () => {
-  
-const client = await api.getClient();
 
-const frame = client.getFrame();
+const frame = api.getFrame();
   
   return frame;
 }
