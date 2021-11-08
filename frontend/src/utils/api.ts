@@ -13,3 +13,8 @@ export const getClient = async () => {
   }
   return clientCache;
 };
+
+export const getFrame = async () => {
+  const client = await getClient();
+  return client.invoke<Uint8Array>("doomonlisk:getFrame");
+};
