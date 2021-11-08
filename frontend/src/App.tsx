@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const canvasRef = document.getElementById('myImage');  
 
   useEffect(() => {
-      const intervalId = setInterval(function () => {
+      const intervalId = setInterval(function () {
       const nextFrame = await api.getFrame();        
 
       if(canvasRef.current){
