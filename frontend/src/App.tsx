@@ -21,17 +21,6 @@ const App: React.FC = () => {
 
     setFrame(nextFrame);
   };
-
-export const getNextFrame = async () => {
-
-const client = await api.getClient();
-
-const frame = client.getFrame();
-
-  return frame;
-}
-  
-  
   
   
   return (
