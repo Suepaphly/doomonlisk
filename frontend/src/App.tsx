@@ -26,7 +26,7 @@ const App: React.FC = () => {
           context.putImageData(imageData, 0, 0); 
         }
     }
-  }, []);
+  }, [frame]);
 
   const refreshFrame = async () => {
     const nextFrame = await api.getFrame()
