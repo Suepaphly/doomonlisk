@@ -15,7 +15,7 @@ const App: React.FC = () => {
       const intervalId = setInterval(async function () {
       const nextFrame = await api.getFrame();        
 
-      if(canvasRef.current){
+      if(canvasRef?.current){
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
       }
