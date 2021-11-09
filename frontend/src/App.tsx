@@ -12,7 +12,7 @@ const frameRefreshRate = 10000;
 const App: React.FC = () => {
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [frame, setFrame] = useState(null);
+  const [frame, setFrame] = useState(Uint8Array);
 
 
 
