@@ -20,10 +20,11 @@ const App: React.FC = () => {
       if(canvasRef?.current){
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
+        if(ctx != null){
+          const imageData = new ImageData(Uint8ClampedArray.from(nextFrame), 320, 200);
+          ctx.putImageData(imageData, 0, 0); 
+        }
       }
-
-      const imageData = new ImageData(Uint8ClampedArray.from(nextFrame), 320, 200);
-      ctx.putImageData(imageData, 0, 0); 
     }, frameRefreshRate);
      
 
