@@ -14,9 +14,10 @@ const App: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
 
-  const nextFrame = await api.getFrame();       
+
 
   useEffect(() => {
+    const nextFrame = await api.getFrame();       
     if (canvasRef.current) {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
