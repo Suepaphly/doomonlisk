@@ -12,22 +12,27 @@ const frameRefreshRate = 10000;
 const App: React.FC = () => {
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [frame, setFrame] = useState();
 
 
 
-
-  useEffect (async()  => {
-    const nextFrame = await api.getFrame();       
+  useEffect (()  => {
+    
     if (canvasRef.current) {
+        refreshFrame();
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         if (context) {
-          const imageData = new ImageData(Uint8ClampedArray.from(nextFrame), 320, 200);
+          const imageData = new ImageData(Uint8ClampedArray.from(frame), 320, 200);
           ctx.putImageData(imageData, 0, 0); 
         }
-
     }
   }, []);
+
+  const refreshFrame = async () => {
+    const nextFrame = await api.getFrame()
+    setFrame(nextFrame);
+  }       
 
   /*
   useEffect(() => {
