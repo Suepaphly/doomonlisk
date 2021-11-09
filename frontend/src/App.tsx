@@ -65,7 +65,7 @@ const App: React.FC = () => {
   
   return (
       <AppLayout>
-         <canvas id="myImage" ref={canvasRef} {...frame}/>
+         <canvas id="myImage" ref={canvasRef} />
         <Routes />
       </AppLayout>
   );
