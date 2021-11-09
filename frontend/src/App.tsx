@@ -21,7 +21,7 @@ const App: React.FC = () => {
         refreshFrame();
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        if (context) {
+        if (context && frame) {
           const imageData = new ImageData(Uint8ClampedArray.from(frame), 320, 200);
           ctx.putImageData(imageData, 0, 0); 
         }
