@@ -11,7 +11,7 @@ const frameRefreshRate = 10000;
 
 const App: React.FC = () => {
   
-  const canvasRef : HTMLCanvasElement | null = document.getElementById('myImage');  
+  const canvasRef : HTMLCanvasElement = document.getElementById('myImage');  
 
   useEffect(() => {
       const intervalId = setInterval(async function () {
@@ -20,11 +20,10 @@ const App: React.FC = () => {
       if(canvasRef?.current){
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        if(ctx != null){
-          const imageData = new ImageData(Uint8ClampedArray.from(nextFrame), 320, 200);
-          ctx.putImageData(imageData, 0, 0); 
-        }
       }
+
+      const imageData = new ImageData(Uint8ClampedArray.from(nextFrame), 320, 200);
+      ctx.putImageData(imageData, 0, 0); 
     }, frameRefreshRate);
      
 
