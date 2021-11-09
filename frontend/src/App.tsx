@@ -11,7 +11,7 @@ const frameRefreshRate = 10000;
 
 const App: React.FC = () => {
   
-  const canvasRef : HTMLCanvasElement = document.getElementById('myImage');  
+  const canvasRef : HTMLCanvasElement | null = document.getElementById('myImage');  
 
   useEffect(() => {
       const intervalId = setInterval(async function () {
