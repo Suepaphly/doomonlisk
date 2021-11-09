@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
 
 
-  useEffect(() => {
+  useEffect (async()  => {
     const nextFrame = await api.getFrame();       
     if (canvasRef.current) {
         const canvas = canvasRef.current;
