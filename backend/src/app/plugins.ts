@@ -6,15 +6,15 @@ import { DashboardPlugin } from "@liskhq/lisk-framework-dashboard-plugin";
 // @ts-expect-error Unused variable error happens here until at least one module is registered
 export const registerPlugins = (_app: Application): void => {
   
-    _app.registerPlugin(PlaydoomPlugin);
+    /*_app.registerPlugin(PlaydoomPlugin);
   	
   
 	_app.overridePluginOptions(PlaydoomPlugin.alias, {
 		applicationUrl: `ws://localhost:${_app.config.rpc.port}/ws`,
 		port: 8000,
 	});
+	*/
 
-
-	_app.registerPlugin(DashboardPlugin); 
+	//_app.registerPlugin(DashboardPlugin); 
 
 };
