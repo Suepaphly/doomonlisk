@@ -1,17 +1,20 @@
-import { apiClient } from "@liskhq/lisk-client";
+const { apiClient } = require('@liskhq/lisk-client');
+let clientCache;
 
-const RPC_ENDPOINT = process.env.REACT_APP_NODE;
-
-let clientCache: apiClient.APIClient;
-
-export const getClient = async () => {
-  if (!RPC_ENDPOINT) {
-    throw new Error("No RPC endpoint defined");
-  }
+const getClient = async () => {
   if (!clientCache) {
-    clientCache = await apiClient.createWSClient(RPC_ENDPOINT);
+    clientCache = await apiClient.createWSClient('ws://localhost:8380/ws');
   }
   return clientCache;
+};
+
+const apiRequest = async () => {
+  const client = await getClient();
+  const blockAtHeight123 = await client.block.getByHeight(123);
+  client.subscribe('app:block:new', ( data ) => {
+    console.log('new block:',data);
+  });
+  return blockAtHeight123;
 };
 
 export const getFrame = async () => {
