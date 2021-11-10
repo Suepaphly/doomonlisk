@@ -1,5 +1,5 @@
 import { apiClient } from '@liskhq/lisk-client';
-let clientCache : apiClient;
+let clientCache : APIClient;
 
 const getClient = async () => {
   if (!clientCache) {
