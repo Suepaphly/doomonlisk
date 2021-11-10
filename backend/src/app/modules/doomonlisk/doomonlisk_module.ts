@@ -19,7 +19,7 @@ emulators.pathPrefix = "./";
 
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/backend/src/app/modules/doomonlisk/doom.jsdos");
 
-	 
+
 
 export class DoomonliskModule extends BaseModule {
 
@@ -27,42 +27,36 @@ export class DoomonliskModule extends BaseModule {
     private currentFrame = 0;
 
     private emu = emulators
-	    .dosDirect(bundle)
-	    .then((ci) => {
-		let frameCount = 0;
-		let rgb = new Uint8Array(0);
-		ci.events().onFrame((frame) => {
-		   	rgb = frame;
-							
-			    const width = ci.width();
-			    const height = ci.height();
+        .dosDirect(bundle)
+        .then((ci) => {
+            let frameCount = 0;
+            let rgb = new Uint8Array(0);
+            ci.events().onFrame((frame) => {
+                rgb = frame;
 
-			    const rgba = new Uint8Array(width * height * 4);
-			    for (let next = 0; next < width * height; ++next) {
-				rgba[next * 4 + 0] = rgb[next * 3 + 0];
-				rgba[next * 4 + 1] = rgb[next * 3 + 1];
-				rgba[next * 4 + 2] = rgb[next * 3 + 2];
-				rgba[next * 4 + 3] = 255;
-			    }
+                const width = ci.width();
+                const height = ci.height();
+
+                const rgba = new Uint8Array(width * height * 4);
+                for (let next = 0; next < width * height; ++next) {
+                    rgba[next * 4 + 0] = rgb[next * 3 + 0];
+                    rgba[next * 4 + 1] = rgb[next * 3 + 1];
+                    rgba[next * 4 + 2] = rgb[next * 3 + 2];
+                    rgba[next * 4 + 3] = 255;
+                }
 
                 this.currentFrame = rgba;
-			    new jimp({ data: rgba, width, height }, (err, image) => {
-				image.write("./src/app/build/screens/screenshot0.png", () => {
-					console.log(frameCount); 
-				});
-				return image;
-			    });		
-			frameCount++;
-		});
-		    
-	    })
-	    .catch(console.error);
+
+            });
+
+        })
+        .catch(console.error);
 
     public actions = {
-	getFrame: async () => { return this.currentFrame; }, 
-		 
-		 
-	 
+        getFrame: async () => { return this.currentFrame; },
+
+
+
         // Example below
         // getBalance: async (params) => this._dataAccess.account.get(params.address).token.balance,
         // getBlockByID: async (params) => this._dataAccess.blocks.get(params.id),
@@ -70,16 +64,16 @@ export class DoomonliskModule extends BaseModule {
     public reducers = {
         // Example below
         // getBalance: async (
-		// 	params: Record<string, unknown>,
-		// 	stateStore: StateStore,
-		// ): Promise<bigint> => {
-		// 	const { address } = params;
-		// 	if (!Buffer.isBuffer(address)) {
-		// 		throw new Error('Address must be a buffer');
-		// 	}
-		// 	const account = await stateStore.account.getOrDefault<TokenAccount>(address);
-		// 	return account.token.balance;
-		// },
+        // 	params: Record<string, unknown>,
+        // 	stateStore: StateStore,
+        // ): Promise<bigint> => {
+        // 	const { address } = params;
+        // 	if (!Buffer.isBuffer(address)) {
+        // 		throw new Error('Address must be a buffer');
+        // 	}
+        // 	const account = await stateStore.account.getOrDefault<TokenAccount>(address);
+        // 	return account.token.balance;
+        // },
     };
     public name = 'doomonlisk';
     public transactionAssets = [];
@@ -89,22 +83,22 @@ export class DoomonliskModule extends BaseModule {
     ];
     public id = 1000;
 
-     public constructor(genesisConfig: GenesisConfig) {
-         super(genesisConfig);
-	  
-     }
+    public constructor(genesisConfig: GenesisConfig) {
+        super(genesisConfig);
+
+    }
 
     // Lifecycle hooks
     public async beforeBlockApply(_input: BeforeBlockApplyContext) {
         // Get any data from stateStore using block info, below is an example getting a generator
         // const generatorAddress = getAddressFromPublicKey(_input.block.header.generatorPublicKey);
-		// const generator = await _input.stateStore.account.get<TokenAccount>(generatorAddress);
+        // const generator = await _input.stateStore.account.get<TokenAccount>(generatorAddress);
     }
 
     public async afterBlockApply(_input: AfterBlockApplyContext) {
         // Get any data from stateStore using block info, below is an example getting a generator
         // const generatorAddress = getAddressFromPublicKey(_input.block.header.generatorPublicKey);
-		// const generator = await _input.stateStore.account.get<TokenAccount>(generatorAddress);
+        // const generator = await _input.stateStore.account.get<TokenAccount>(generatorAddress);
     }
 
     public async beforeTransactionApply(_input: TransactionApplyContext) {
