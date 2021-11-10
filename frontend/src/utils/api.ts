@@ -4,7 +4,7 @@ let clientCache : APIClient;
 
 const getClient = async () => {
   if (!clientCache) {
-    clientCache = await apiClient.createWSClient('ws://45.77.75.247:80/ws');
+    clientCache = await apiClient.createWSClient('ws://45.77.75.247:8124/ws');
   }
   return clientCache;
 };
