@@ -1,5 +1,5 @@
-const { apiClient } = require('@liskhq/lisk-client');
-let clientCache;
+import { apiClient } from '@liskhq/lisk-client';
+let clientCache : apiClient;
 
 const getClient = async () => {
   if (!clientCache) {
