@@ -16,7 +16,7 @@ const App: React.FC = () => {
         refreshFrame();
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        if (context && frame &&) {
+        if (context && frame) {
           console.log(frame);
           
           var imageData = new ImageData(Uint8ClampedArray.from(Object.values(frame)), 320, 200);
