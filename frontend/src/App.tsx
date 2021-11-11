@@ -20,14 +20,11 @@ const App: React.FC = () => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         if (context && frame) {
-          console.log(frame);
           
           var imageData = new ImageData(Uint8ClampedArray.from(Object.values(frame)), 320, 200);
 
           context.clearRect(0, 0, 320, 200);
-          context.save();
           context.putImageData(imageData, 0, 0); 
-          context.restore();
         }
     }
     return () => {
