@@ -15,18 +15,10 @@ const App: React.FC = () => {
 
     const intervalId = setInterval(refreshFrame, frameRefreshRate);
 
-    if (canvasRef.current) {
-        refreshFrame();
-        const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
-        if (context && frame) {
-          
-          var imageData = new ImageData(Uint8ClampedArray.from(Object.values(frame)), 320, 200);
 
-          context.clearRect(0, 0, 320, 200);
-          context.putImageData(imageData, 0, 0); 
-        }
-    }
+    window.requestAnimationFrame(drawFrame);
+
+    
     return () => {
       clearInterval(intervalId);
     };
@@ -36,6 +28,22 @@ const App: React.FC = () => {
     const nextFrame = await api.getFrame()
     setFrame(nextFrame);
   }  
+
+  const drawFrame = async () => {
+    if (canvasRef.current) {
+      refreshFrame();
+      const canvas = canvasRef.current;
+      const context = canvas.getContext('2d');
+      if (context && frame) {
+        
+        var imageData = new ImageData(Uint8ClampedArray.from(Object.values(frame)), 320, 200);
+
+        context.clearRect(0, 0, 320, 200);
+        context.putImageData(imageData, 0, 0); 
+      }
+  }
+  
+  }
   
   return (
          <canvas id="myImage" ref={canvasRef} />
