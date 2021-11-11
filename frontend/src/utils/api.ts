@@ -2,7 +2,7 @@ import { apiClient } from '@liskhq/lisk-client';
 import { APIClient } from '@liskhq/lisk-api-client';
 let clientCache : APIClient;
 
-const getClient = async () => {
+export const getClient = async () => {
   if (!clientCache) {
     clientCache = await apiClient.createWSClient('ws://45.77.75.247:3024/ws');
   }
