@@ -40,6 +40,7 @@ const App: React.FC = () => {
 
         context.clearRect(0, 0, 320, 200);
         context.putImageData(imageData, 0, 0); 
+        window.requestAnimationFrame(drawFrame);
       }
   }
   
