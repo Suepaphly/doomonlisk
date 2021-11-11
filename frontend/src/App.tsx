@@ -4,7 +4,7 @@ import AppLayout from "./components/Layout";
 import * as api from "./utils/api";
 import * as jimp from 'jimp';
 
-const frameRefreshRate = 10000;
+const frameRefreshRate = 100;
 
 const App: React.FC = () => {
   
@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
     window.requestAnimationFrame(drawFrame);
 
-    
+
     return () => {
       clearInterval(intervalId);
     };
