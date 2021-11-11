@@ -6,18 +6,27 @@ import * as jimp from 'jimp';
 
 const frameRefreshRate = 10000;
 
-const client = await api.getClient();
-
-
 const App: React.FC = () => {
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(null);
-
+  const clientRef = useRef(null);
 
 
   useEffect (()  => {    
-    setInterval(()=>{ frameRef.current = client.invoke<Uint8Array>("doomonlisk:getFrame") }, 1000 );
+
+    const setupSocket = async () => { 
+      clientRef.current = await api.getClient();      
+    }
+    
+    setupSocket();
+    
+    setInterval(()=>{ 
+      if(clientRef.current){
+        frameRef.current = clientRef.current.invoke<Uint8Array>("doomonlisk:getFrame");
+      }    
+    }, 1000 );
+
     window.requestAnimationFrame(drawFrame);
   }, []);
 
