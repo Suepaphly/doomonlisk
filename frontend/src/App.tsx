@@ -12,6 +12,9 @@ const App: React.FC = () => {
   const [frame, setFrame] = useState(new Uint8Array(256000));
 
   useEffect (()  => {    
+
+    const intervalId = setInterval(refreshFrame, frameRefreshRate);
+
     if (canvasRef.current) {
         refreshFrame();
         const canvas = canvasRef.current;
@@ -23,6 +26,9 @@ const App: React.FC = () => {
           context.putImageData(imageData, 0, 0); 
         }
     }
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [frame]);
 
   const refreshFrame = async () => {
