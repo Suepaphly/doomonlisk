@@ -4,7 +4,7 @@ import AppLayout from "./components/Layout";
 import * as api from "./utils/api";
 import * as jimp from 'jimp';
 
-const frameRefreshRate = 100;
+const frameRefreshRate = 10000;
 
 const App: React.FC = () => {
   
