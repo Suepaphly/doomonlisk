@@ -19,8 +19,8 @@ const App: React.FC = () => {
         if (context && frame) {
           console.log(frame);
           
-          /*const imageData = new ImageData(Uint8ClampedArray.from(frame), 320, 200);
-          context.putImageData(imageData, 0, 0); */
+          var imageData = new ImageData(Uint8ClampedArray.from(frame), 320, 200);
+          context.putImageData(imageData, 0, 0); 
         }
     }
   }, [frame]);
