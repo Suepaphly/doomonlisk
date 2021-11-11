@@ -23,7 +23,11 @@ const App: React.FC = () => {
           console.log(frame);
           
           var imageData = new ImageData(Uint8ClampedArray.from(Object.values(frame)), 320, 200);
+
+          context.clearRect(0, 0, 320, 200);
+          context.save();
           context.putImageData(imageData, 0, 0); 
+          context.restore();
         }
     }
     return () => {
