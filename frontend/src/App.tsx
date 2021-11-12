@@ -6,7 +6,7 @@ import * as jimp from 'jimp';
 
 const frameRefreshRate = 10000;
 
-const App: React.FC = () => {
+const App: React.FC<> = () => {
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(null);
@@ -86,8 +86,7 @@ const App: React.FC = () => {
   
   return (
          <canvas id="myImage" ref={canvasRef} />
-  );
-  };
+  )};
 }
 
 export default App;
