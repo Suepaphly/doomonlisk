@@ -40,9 +40,7 @@ const App: React.FC = () => {
         
          const imageData = new ImageData(Uint8ClampedArray.from(Object.values(frameRef.current)), 320, 200);
 
-        context.clearRect(0, 0, 320, 200);
         context.putImageData(imageData, 0, 0); 
-        window.requestAnimationFrame(drawFrame);
       }
   }
 };
