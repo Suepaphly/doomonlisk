@@ -24,7 +24,7 @@ const App: React.FC = () => {
     
     setInterval(()=>{ 
       if(clientRef.current){
-        frameRef.current = clientRef.current.invoke<Uint8Array>("doomonlisk:getFrame");
+        frameRef.current = clientRef.current.invoke("doomonlisk:getFrame");
       }    
     }, 1000 );
 
