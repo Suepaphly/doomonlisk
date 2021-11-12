@@ -23,7 +23,7 @@ const App: React.FC = () => {
     
     setInterval(async()=>{ 
       if(clientRef.current){
-        let frameData = await clientRef.current.invoke("doomonlisk:getFrame");
+        let frameData : any = await clientRef.current.invoke("doomonlisk:getFrame");
         drawFrame(frameData);
       }    
     }, 1000 );
