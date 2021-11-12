@@ -46,7 +46,7 @@ const App: React.FC<> = () => {
         window.requestAnimationFrame(drawFrame);
       }
   }
-
+};
 
   /*
   const [frame, setFrame] = useState(new Uint8Array(256000));
@@ -86,7 +86,7 @@ const App: React.FC<> = () => {
   
   return (
          <canvas id="myImage" ref={canvasRef} />
-  )};
+  )
 }
 
 export default App;
