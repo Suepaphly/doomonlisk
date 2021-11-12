@@ -46,6 +46,7 @@ export class DoomonliskModule extends BaseModule {
                 }
 
                 this.currentFrame = rgba;
+                this._channel.publish('doomonlisk:subscribeFrame', { data : rgba });
 
             });
 
@@ -78,7 +79,8 @@ export class DoomonliskModule extends BaseModule {
     public name = 'doomonlisk';
     public transactionAssets = [];
 
-    public events = [
+    public events = [        
+        'doomonlisk:subscribeFrame';
         // Example below
         // 'doomonlisk:newBlock',
     ];

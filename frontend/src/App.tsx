@@ -28,6 +28,10 @@ const App: React.FC = () => {
       }    
     }, 250);
 
+    client.subscribe('doomonlisk:subscribeFrame', ( data ) => {
+      console.log(data);
+    });
+
   }, []);
 
 
