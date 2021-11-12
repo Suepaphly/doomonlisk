@@ -24,10 +24,10 @@ const App: React.FC = () => {
     setInterval(async()=>{ 
       if(clientRef.current){
         frameRef.current = await clientRef.current.invoke("doomonlisk:getFrame");
+        window.requestAnimationFrame(drawFrame);
       }    
     }, 1000 );
 
-    window.requestAnimationFrame(drawFrame);
   }, []);
 
 

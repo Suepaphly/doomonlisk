@@ -77,10 +77,12 @@ export class DoomonliskModule extends BaseModule {
     };
     public name = 'doomonlisk';
     public transactionAssets = [];
+
     public events = [
         // Example below
         // 'doomonlisk:newBlock',
     ];
+    
     public id = 1000;
 
     public constructor(genesisConfig: GenesisConfig) {
