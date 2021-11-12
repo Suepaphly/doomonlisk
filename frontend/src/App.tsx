@@ -35,7 +35,6 @@ const App: React.FC = () => {
 
   const drawFrame = async () => {
     if (canvasRef.current) {
-      refreshFrame();
       const canvas = canvasRef.current;
       const context = canvas.getContext('2d');
       if (context && frameRef.current) {
