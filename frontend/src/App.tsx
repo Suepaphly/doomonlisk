@@ -2,6 +2,7 @@ import Routes from "./Routes";
 import React, { useState, useEffect, useRef } from "react";
 import AppLayout from "./components/Layout";
 import { getClient } from "./utils/api";
+import { APIClient } from '@liskhq/lisk-api-client';
 import * as jimp from 'jimp';
 
 const frameRefreshRate = 10000;
@@ -10,7 +11,7 @@ const App: React.FC = () => {
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(null);
-  const clientRef = useRef<APIClient>(null);
+  const clientRef = useRef<any>(null);
 
 
   useEffect (()  => {    
