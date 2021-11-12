@@ -26,7 +26,7 @@ const App: React.FC = () => {
         let frameData = await clientRef.current.invoke("doomonlisk:getFrame");
         drawFrame(frameData);
       }    
-    }, 1000 );
+    }, 30 );
 
   }, []);
 
