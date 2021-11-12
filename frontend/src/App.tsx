@@ -23,8 +23,8 @@ const App: React.FC = () => {
     
     setInterval(async()=>{ 
       if(clientRef.current){
-        frameRef.current = await clientRef.current.invoke("doomonlisk:getFrame");
-        drawFrame();
+        let frameData = await clientRef.current.invoke("doomonlisk:getFrame");
+        drawFrame(frameData);
       }    
     }, 1000 );
 
@@ -32,13 +32,13 @@ const App: React.FC = () => {
 
 
 
-  const drawFrame = async () => {
+  const drawFrame = async (frameData) => {
     if (canvasRef.current) {
       const canvas = canvasRef.current;
       const context = canvas.getContext('2d');
-      if (context && frameRef.current) {
+      if (context && frameData) {
         
-         const imageData = new ImageData(Uint8ClampedArray.from(Object.values(frameRef.current)), 320, 200);
+         const imageData = new ImageData(Uint8ClampedArray.from(Object.values(frameData)), 320, 200);
 
         context.clearRect(0, 0, 320, 200);
         context.putImageData(imageData, 0, 0); 
