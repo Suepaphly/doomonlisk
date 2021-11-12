@@ -21,9 +21,9 @@ const App: React.FC = () => {
     
     setupSocket();
     
-    setInterval(()=>{ 
+    setInterval(async()=>{ 
       if(clientRef.current){
-        frameRef.current = clientRef.current.invoke("doomonlisk:getFrame");
+        frameRef.current = await clientRef.current.invoke("doomonlisk:getFrame");
       }    
     }, 1000 );
 
