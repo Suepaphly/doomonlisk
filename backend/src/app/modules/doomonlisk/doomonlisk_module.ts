@@ -80,7 +80,7 @@ export class DoomonliskModule extends BaseModule {
     public transactionAssets = [];
 
     public events = [        
-        'doomonlisk:subscribeFrame';
+        'doomonlisk:subscribeFrame',
         // Example below
         // 'doomonlisk:newBlock',
     ];
