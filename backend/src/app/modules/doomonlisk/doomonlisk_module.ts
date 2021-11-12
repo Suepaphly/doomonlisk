@@ -24,7 +24,7 @@ const bundle = fs.readFileSync("/home/lisk/doomonlisk/backend/src/app/modules/do
 export class DoomonliskModule extends BaseModule {
 
 
-    private currentFrame = 0;
+    private currentFrame : Uint8Array;
 
     private emu = emulators
         .dosDirect(bundle)
