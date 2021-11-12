@@ -10,7 +10,7 @@ const App: React.FC = () => {
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(null);
-  const clientRef = useRef(null);
+  const clientRef = useRef<APIClient>(null);
 
 
   useEffect (()  => {    
