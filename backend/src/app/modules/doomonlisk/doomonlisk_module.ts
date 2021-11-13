@@ -46,7 +46,8 @@ export class DoomonliskModule extends BaseModule {
                 }
 
                 this.currentFrame = rgba;
-                this._channel.publish('doomonlisk:subscribeFrame', { data : rgba });
+                //this._channel.publish('doomonlisk:subscribeFrame', { data : rgba });
+                //This would be cool, if it worked. 
 
             });
 
@@ -80,9 +81,8 @@ export class DoomonliskModule extends BaseModule {
     public transactionAssets = [];
 
     public events = [        
-        'doomonlisk:subscribeFrame',
-        // Example below
-        // 'doomonlisk:newBlock',
+        //'doomonlisk:subscribeFrame',
+        
     ];
     
     public id = 1000;
