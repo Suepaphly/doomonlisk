@@ -4,7 +4,7 @@ import AppLayout from "./components/Layout";
 import { getClient } from "./utils/api";
 import * as jimp from 'jimp';
 
-const frameRefreshRate = 10000;
+const frameRefreshRate = 250;
 
 const App: React.FC = () => {
   
@@ -27,8 +27,11 @@ const App: React.FC = () => {
 
         drawFrame(frameData);
       }    
-    }, 250);
+    }, frameRefreshRate);
 
+
+
+  }, []);
 
 
     /*
@@ -39,14 +42,17 @@ const App: React.FC = () => {
         }    
       }, 10000);*/
 
-  }, []);
-
-  const handler = async (event : any) => {
+  /*const handler = async (event : any) => {
     if(clientRef.current){
       let testKey = await clientRef.current.invoke("doomonlisk:pressEnter");
       console.log(event.code);
     }       
   };
+
+  <br /><br />
+         <p>click into the box below to focus the keyboard</p>
+         <br />
+         <input type="text" onKeyPress={(e) => handler(e)} />*/
 
   const drawFrame = async (frameData : any) => {
     if (canvasRef.current) {
@@ -63,14 +69,7 @@ const App: React.FC = () => {
 };
   
   return (
-    <div>
-         <canvas id="myImage" ref={canvasRef} />
-         <br /><br />
-         <p>click into the box below to focus the keyboard</p>
-         <br />
-         <input type="text" onKeyPress={(e) => handler(e)} />
-    </div>
-         
+         <canvas id="myImage" ref={canvasRef} />       
   )
 }
 
