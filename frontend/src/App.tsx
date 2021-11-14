@@ -29,8 +29,10 @@ const App: React.FC = () => {
       }    
     }, 250);
 
-    const handler = async (event : any) => {
-      let frameData = await clientRef.current.invoke("doomonlisk:getEMU");      
+    public const handler = async (event : any) => {
+      if(clientRef.current){
+        let testKey = await clientRef.current.invoke("doomonlisk:getEMU");   
+      }       
     };
 
     /*
