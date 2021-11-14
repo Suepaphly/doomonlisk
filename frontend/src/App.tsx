@@ -44,8 +44,8 @@ const App: React.FC = () => {
         frameData.events().onFrame((frame : any) => {
             rgb = frame;
 
-            const width = ci.width();
-            const height = ci.height();
+            const width = frameData.width();
+            const height = frameData.height();
 
             const rgba = new Uint8Array(width * height * 4);
             for (let next = 0; next < width * height; ++next) {
