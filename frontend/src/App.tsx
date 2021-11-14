@@ -64,6 +64,12 @@ const App: React.FC = () => {
          <canvas id="myImage" ref={canvasRef} />
          <br /><br />
          <p>click into the box below to focus the keyboard</p>
+         <p>wsad = move<br />
+            j = fire
+            k = strafe
+            m = map
+            f = interact (open doors)
+          </p>
          <br />
          <input type="text" onKeyDown={(e) => downHandler(e)} onKeyUp={(e) => upHandler(e)}/>
     </div>
