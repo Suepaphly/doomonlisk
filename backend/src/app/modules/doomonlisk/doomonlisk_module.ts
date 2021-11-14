@@ -60,18 +60,56 @@ export class DoomonliskModule extends BaseModule {
         })
         .catch(console.error);
 
-    private enterKey () {
+    private pressEnter () {
         this.ci.sendKeyEvent(257, true);
         this.ci.sendKeyEvent(257, false);
     }
+    private pressUp () {
+        this.ci.sendKeyEvent(265, true);
+        this.ci.sendKeyEvent(265, false);
+    }
+    private pressDown () {
+        this.ci.sendKeyEvent(264, true);
+        this.ci.sendKeyEvent(264, false);
+    }
+    private pressLeft () {
+        this.ci.sendKeyEvent(263, true);
+        this.ci.sendKeyEvent(263, false);
+    }
+    private pressRight () {
+        this.ci.sendKeyEvent(262, true);
+        this.ci.sendKeyEvent(262, false);
+    }
+    private pressCtrl () {
+        this.ci.sendKeyEvent(341, true);
+        this.ci.sendKeyEvent(341, false);
+    }
+    private toggleAltOn () {
+        this.ci.sendKeyEvent(342, true);
+        this.ci.sendKeyEvent(342, false);
+    }
+    private toggleAltOff () {
+        this.ci.sendKeyEvent(342, true);
+        this.ci.sendKeyEvent(342, false);
+    }
+    private pressTab () {
+        this.ci.sendKeyEvent(258, true);
+        this.ci.sendKeyEvent(258, false);
 
     public actions = {
         getFrame: async () => { return this.currentFrame; },
-        getEMU: async () => { 
+        pEnter: async () => { this.pressEnter(); return 0; },
+        pUp: async () => { this.pressUp(); return 0; },
+        pDown: async () => { this.pressDown(); return 0; },
+        pLeft: async () => { this.pressLeft(); return 0; },
+        pRight: async () => { this.pressRight(); return 0; },
+        pCtrl: async () => { this.pressCtrl(); return 0; },
+        pAltOn: async () => { this.toggleAltOn(); return 0; },
+        pAltOff: async () => { this.toggleAltOff(); return 0; },
+        pTab: async () => { this.pressTab(); return 0; },
             
-            this.enterKey();
 
-            return 0; },
+            
 
 
         // Example below
