@@ -43,8 +43,8 @@ const App: React.FC = () => {
 
   const handler = async (event : any) => {
     if(clientRef.current){
-      let testKey = await clientRef.current.invoke("doomonlisk:pEnter");
-      console.log("doomonlisk:p${string(event.code)}");
+      let testKey = await clientRef.current.invoke("doomonlisk:pressEnter");
+      console.log(event.code);
     }       
   };
 
