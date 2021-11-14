@@ -28,10 +28,6 @@ const App: React.FC = () => {
       }    
     }, 250);
 
-    client.subscribe('doomonlisk:subscribeFrame', ( data ) => {
-      console.log(data);
-    });
-
   }, []);
 
 
@@ -66,11 +62,12 @@ const App: React.FC = () => {
         
          const imageData = new ImageData(Uint8ClampedArray.from(Object.values(currentFrame)), 320, 200);
 
-        context.clearRect(0, 0, 320, 200);
-        context.putImageData(imageData, 0, 0); 
+          context.clearRect(0, 0, 320, 200);
+          context.putImageData(imageData, 0, 0); 
+        });
       }
+    };
   }
-};
 
   /*
   const [frame, setFrame] = useState(new Uint8Array(256000));
