@@ -24,7 +24,7 @@ const App: React.FC = () => {
     setInterval(async()=>{ 
       if(clientRef.current){
         let frameData = await clientRef.current.invoke("doomonlisk:getFrame");
-
+        
         drawFrame(frameData);
       }    
     }, frameRefreshRate);
@@ -61,8 +61,8 @@ const App: React.FC = () => {
   
   return (
     <div>
-         <canvas id="myImage" ref={canvasRef} />
-         <br /><br />
+         <canvas id="myImage" ref={canvasRef} onKeyDown={this.downHandler} onKeyUp={this.upHandler}/>
+         <br />
          <p>click into the box below to focus the keyboard</p>
          <p>wsad = move<br />
             j = fire
@@ -70,8 +70,6 @@ const App: React.FC = () => {
             m = map
             f = interact (open doors)
           </p>
-         <br />
-         <input type="text" onKeyDown={(e) => downHandler(e)} onKeyUp={(e) => upHandler(e)}/>
     </div>
          
   )
