@@ -29,16 +29,19 @@ const App: React.FC = () => {
       }    
     }, 250);
 
+    const handler = (event) => {
+      let frameData = await clientRef.current.invoke("doomonlisk:getEMU");      
+    };
 
+    /*
     setInterval(async()=>{ 
       if(clientRef.current){
          let frameData = await clientRef.current.invoke("doomonlisk:getEMU");
 
         }    
-      }, 10000);
+      }, 10000);*/
 
   }, []);
-
 
 
   const drawFrame = async (frameData : any) => {
@@ -57,6 +60,7 @@ const App: React.FC = () => {
   
   return (
          <canvas id="myImage" ref={canvasRef} />
+         <input type="text" onKeyPress={(e) => handler(e)} />
   )
 }
 
