@@ -29,7 +29,7 @@ const App: React.FC = () => {
       }    
     }, 250);
 
-    const handler = (event) => {
+    const handler = async (event) => {
       let frameData = await clientRef.current.invoke("doomonlisk:getEMU");      
     };
 
