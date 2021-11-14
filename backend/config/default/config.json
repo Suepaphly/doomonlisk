@@ -11,7 +11,7 @@
 	"rpc": {
 		"enable": true,
 		"mode": "ws",
-		"port": 3025,
+		"port": 3024,
 		"host": "0.0.0.0"
 	},
 	"genesisConfig": {

@@ -52,7 +52,6 @@ export class DoomonliskModule extends BaseModule {
 
             });
 
-            ci.close();
         })
         .catch(console.error);
 
