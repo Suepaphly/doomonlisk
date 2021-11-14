@@ -32,21 +32,18 @@ const App: React.FC = () => {
 
   }, []);
 
-
-    document.addEventListener('keydown', function async (event : any) {
+  const downHandler = async (event : any) => {
     if(clientRef.current){
       let key = event.code;
       let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Down");
-      console.log(event.code);
-    }  
-    });
-    document.addEventListener('keyup', function async (event : any) {
-      if(clientRef.current){
-        let key = event.code;
-        let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Up");
-        console.log(event.code);
-      }  
-    });
+    }       
+  };
+  const upHandler = async (event : any) => {
+    if(clientRef.current){
+      let key = event.code;
+      let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Up");
+    }       
+  };
 
   const drawFrame = async (frameData : any) => {
     if (canvasRef.current) {
@@ -65,6 +62,10 @@ const App: React.FC = () => {
   return (
     <div>
          <canvas id="myImage" ref={canvasRef} />
+         <br /><br />
+         <p>click into the box below to focus the keyboard</p>
+         <br />
+         <input type="text" onKeyDown={(e) => downHandler(e)} onKeyUp={(e) => upHandler(e)}/>
     </div>
          
   )
