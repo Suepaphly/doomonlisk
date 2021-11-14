@@ -51,60 +51,27 @@ export class DoomonliskModule extends BaseModule {
                 //This would be cool, if it worked. 
 
             });
+/* Works
+            setTimeout(() => {
+                ci.sendKeyEvent(257, true);
+                ci.sendKeyEvent(257, false);
+            }, 10000);
+*/
         })
         .catch(console.error);
 
-    private pressEnter () {
+    private enterKey () {
         this.ci.sendKeyEvent(257, true);
         this.ci.sendKeyEvent(257, false);
-    }
-    private pressUp () {
-        this.ci.sendKeyEvent(265, true);
-        this.ci.sendKeyEvent(265, false);
-    }
-    private pressDown () {
-        this.ci.sendKeyEvent(264, true);
-        this.ci.sendKeyEvent(264, false);
-    }
-    private pressLeft () {
-        this.ci.sendKeyEvent(263, true);
-        this.ci.sendKeyEvent(263, false);
-    }
-    private pressRight () {
-        this.ci.sendKeyEvent(262, true);
-        this.ci.sendKeyEvent(262, false);
-    }
-    private pressCtrl () {
-        this.ci.sendKeyEvent(341, true);
-        this.ci.sendKeyEvent(341, false);
-    }
-    private toggleAltOn () {
-        this.ci.sendKeyEvent(342, true);
-        this.ci.sendKeyEvent(342, false);
-    }
-    private toggleAltOff () {
-        this.ci.sendKeyEvent(342, true);
-        this.ci.sendKeyEvent(342, false);
-    }
-    private pressTab () {
-        this.ci.sendKeyEvent(258, true);
-        this.ci.sendKeyEvent(258, false);
     }
 
     public actions = {
         getFrame: async () => { return this.currentFrame; },
-        pEnter: async () => { this.pressEnter(); return 0; },
-        pKeyW: async () => { this.pressUp(); return 0; },
-        pKeyS: async () => { this.pressDown(); return 0; },
-        pKeyA: async () => { this.pressLeft(); return 0; },
-        pKeyD: async () => { this.pressRight(); return 0; },
-        pKeyJ: async () => { this.pressCtrl(); return 0; },
-        pKeyKOn: async () => { this.toggleAltOn(); return 0; },
-        pKeyKOff: async () => { this.toggleAltOff(); return 0; },
-        pKeyM: async () => { this.pressTab(); return 0; },
+        pressEnter: async () => { 
             
+            this.enterKey();
 
-            
+            return 0; },
 
 
         // Example below
