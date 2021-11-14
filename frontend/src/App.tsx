@@ -32,14 +32,11 @@ const App: React.FC = () => {
 
   }, []);
 
-  const handler = async (event : any) => {
-     
-  };
 
   const handler = async (event : any) => {
 
     let key = event.code;
-    
+
     document.addEventListener('keydown', function(event : any) {
     if(clientRef.current){
       let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Down");
