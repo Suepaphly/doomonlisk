@@ -58,8 +58,8 @@ export class DoomonliskModule extends BaseModule {
         .catch(console.error);
 
     public actions = {
-        //getFrame: async () => { return this.currentFrame; },
-        getCI: async () => { return this.CommandInt; },
+        getFrame: async () => { return this.currentFrame; },
+        //getCI: async () => { return this.CommandInt; },
 
 
         // Example below
