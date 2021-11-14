@@ -30,29 +30,14 @@ const App: React.FC = () => {
     }, frameRefreshRate);
 
 
-
   }, []);
 
-
-    /*
-    setInterval(async()=>{ 
-      if(clientRef.current){
-         let frameData = await clientRef.current.invoke("doomonlisk:getEMU");
-
-        }    
-      }, 10000);*/
-
-  /*const handler = async (event : any) => {
+  const handler = async (event : any) => {
     if(clientRef.current){
-      let testKey = await clientRef.current.invoke("doomonlisk:pressEnter");
-      console.log(event.code);
+      let testKey = await clientRef.current.invoke("doomonlisk:pEnter");
+      console.log(string(event.code));
     }       
   };
-
-  <br /><br />
-         <p>click into the box below to focus the keyboard</p>
-         <br />
-         <input type="text" onKeyPress={(e) => handler(e)} />*/
 
   const drawFrame = async (frameData : any) => {
     if (canvasRef.current) {
@@ -69,7 +54,14 @@ const App: React.FC = () => {
 };
   
   return (
-         <canvas id="myImage" ref={canvasRef} />       
+    <div>
+         <canvas id="myImage" ref={canvasRef} />
+         <br /><br />
+         <p>click into the box below to focus the keyboard</p>
+         <br />
+         <input type="text" onKeyPress={(e) => handler(e)} />
+    </div>
+         
   )
 }
 
