@@ -35,7 +35,7 @@ const App: React.FC = () => {
          let frameData = await clientRef.current.invoke("doomonlisk:getEMU");
 
         }    
-      }, 20000);
+      }, 10000);
 
   }, []);
 

@@ -51,17 +51,18 @@ export class DoomonliskModule extends BaseModule {
                 //This would be cool, if it worked. 
 
             });
-
+/* Works
             setTimeout(() => {
                 ci.sendKeyEvent(257, true);
                 ci.sendKeyEvent(257, false);
             }, 10000);
-
+*/
         })
         .catch(console.error);
 
     private enterKey () {
-        this.ci.sendKeyEvent("Enter", true);
+        this.ci.sendKeyEvent(257, true);
+        this.ci.sendKeyEvent(257, false);
     }
 
     public actions = {
