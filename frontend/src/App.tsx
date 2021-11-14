@@ -40,10 +40,11 @@ const App: React.FC = () => {
       }, 10000);*/
 
   }, []);
-  
+
   const handler = async (event : any) => {
     if(clientRef.current){
-      let testKey = await clientRef.current.invoke("doomonlisk:getEMU");   
+      let testKey = await clientRef.current.invoke("doomonlisk:getEMU");
+      console.log(event);
     }       
   };
 
@@ -64,6 +65,8 @@ const App: React.FC = () => {
   return (
     <div>
          <canvas id="myImage" ref={canvasRef} />
+         <br /><br />
+         <p>click into the box below to focus the keyboard</p>
          <input type="text" onKeyPress={(e) => handler(e)} />
     </div>
          
