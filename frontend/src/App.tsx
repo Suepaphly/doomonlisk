@@ -37,13 +37,13 @@ const App: React.FC = () => {
 
     let key = event.code;
 
-    document.addEventListener('keydown', function(event : any) {
+    document.addEventListener('keydown', function async (event : any) {
     if(clientRef.current){
       let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Down");
       console.log(event.code);
     }  
     });
-    document.addEventListener('keyup', function(event : any) {
+    document.addEventListener('keyup', function async (event : any) {
       if(clientRef.current){
         let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Up");
         console.log(event.code);
