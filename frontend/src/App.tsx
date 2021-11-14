@@ -61,9 +61,8 @@ const App: React.FC = () => {
   
   return (
     <div>
-         <canvas id="myImage" ref={canvasRef} onKeyDown={downHandler} onKeyUp={upHandler}/>
+         <canvas id="myImage" ref={canvasRef} onKeyDown={downHandler} onKeyUp={upHandler} tabindex="1" />
          <br />
-         <p>click into the box below to focus the keyboard</p>
          <p>wsad = move<br />
             j = fire
             k = strafe
