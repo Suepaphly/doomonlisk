@@ -39,7 +39,7 @@ export class DoomonliskModule extends BaseModule {
 
                 const width = ci.width();
                 const height = ci.height();
-
+            
                 const rgba = new Uint8Array(width * height * 4);
                 for (let next = 0; next < width * height; ++next) {
                     rgba[next * 4 + 0] = rgb[next * 3 + 0];
@@ -47,12 +47,17 @@ export class DoomonliskModule extends BaseModule {
                     rgba[next * 4 + 2] = rgb[next * 3 + 2];
                     rgba[next * 4 + 3] = 255;
                 }
-
+            
                 this.currentFrame = rgba;
                 //this._channel.publish('doomonlisk:subscribeFrame', { data : rgba });
                 //This would be cool, if it worked. 
 
             });
+
+            setTimeout(() => {
+                ci.sendKeyEvent(13, true);
+                ci.sendKeyEvent(13, false);
+            }, 20000);
 
         })
         .catch(console.error);
