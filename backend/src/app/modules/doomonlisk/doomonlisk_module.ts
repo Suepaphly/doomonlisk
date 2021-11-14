@@ -95,18 +95,19 @@ export class DoomonliskModule extends BaseModule {
     private pressTab () {
         this.ci.sendKeyEvent(258, true);
         this.ci.sendKeyEvent(258, false);
+    }
 
     public actions = {
         getFrame: async () => { return this.currentFrame; },
         pEnter: async () => { this.pressEnter(); return 0; },
-        pUp: async () => { this.pressUp(); return 0; },
-        pDown: async () => { this.pressDown(); return 0; },
-        pLeft: async () => { this.pressLeft(); return 0; },
-        pRight: async () => { this.pressRight(); return 0; },
-        pCtrl: async () => { this.pressCtrl(); return 0; },
-        pAltOn: async () => { this.toggleAltOn(); return 0; },
-        pAltOff: async () => { this.toggleAltOff(); return 0; },
-        pTab: async () => { this.pressTab(); return 0; },
+        pKeyW: async () => { this.pressUp(); return 0; },
+        pKeyS: async () => { this.pressDown(); return 0; },
+        pKeyA: async () => { this.pressLeft(); return 0; },
+        pKeyD: async () => { this.pressRight(); return 0; },
+        pKeyJ: async () => { this.pressCtrl(); return 0; },
+        pKeyKOn: async () => { this.toggleAltOn(); return 0; },
+        pKeyKOff: async () => { this.toggleAltOff(); return 0; },
+        pKeyM: async () => { this.pressTab(); return 0; },
             
 
             
