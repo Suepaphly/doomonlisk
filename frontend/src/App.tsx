@@ -41,7 +41,7 @@ const App: React.FC = () => {
 
         let frameCount = 0;
         let rgb = new Uint8Array(0);
-        frameData.events().onFrame((frame) => {
+        frameData.events().onFrame((frame : any) => {
             rgb = frame;
 
             const width = ci.width();
