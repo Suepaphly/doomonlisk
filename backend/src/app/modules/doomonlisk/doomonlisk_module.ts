@@ -26,8 +26,6 @@ export class DoomonliskModule extends BaseModule {
 
     private currentFrame : Uint8Array;
 
-    private ci : any;
-
     private emu = emulators
         .dosDirect(bundle)
         .then((ci) => {
@@ -55,8 +53,8 @@ export class DoomonliskModule extends BaseModule {
             });
 
             setTimeout(() => {
-                ci.sendKeyEvent(13, true);
-                ci.sendKeyEvent(13, false);
+                ci.sendKeyEvent(10, true);
+                ci.sendKeyEvent(10, false);
             }, 20000);
 
         })
