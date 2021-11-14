@@ -60,7 +60,8 @@ const App: React.FC = () => {
   
   return (
          <canvas id="myImage" ref={canvasRef} />
-         <input type="text" onKeyPress={(e) => handler(e)} />
+         <div><input type="text" onKeyPress={(e) => handler(e)} /></div>
+         
   )
 }
 
