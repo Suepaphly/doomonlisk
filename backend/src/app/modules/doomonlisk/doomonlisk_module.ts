@@ -60,54 +60,73 @@ export class DoomonliskModule extends BaseModule {
         })
         .catch(console.error);
 
-    private pressEnter () {
+    private pressEnterDown () {
         this.ci.sendKeyEvent(257, true);
+    }
+    private pressEnterUp () {
         this.ci.sendKeyEvent(257, false);
     }
-    private pressUp () {
+    private pressUpDown () {
         this.ci.sendKeyEvent(265, true);
+    }
+    private pressUpUp () {
         this.ci.sendKeyEvent(265, false);
     }
-    private pressDown () {
+    private pressDownDown () {
         this.ci.sendKeyEvent(264, true);
+    }
+    private pressDownUp () {
         this.ci.sendKeyEvent(264, false);
     }
-    private pressLeft () {
+    private pressLeftDown () {
         this.ci.sendKeyEvent(263, true);
+    }
+    private pressLeftUp () {
         this.ci.sendKeyEvent(263, false);
     }
-    private pressRight () {
+    private pressRightDown () {
         this.ci.sendKeyEvent(262, true);
+    }
+    private pressRightUp () {
         this.ci.sendKeyEvent(262, false);
     }
-    private pressCtrl () {
+    private pressCtrlDown () {
         this.ci.sendKeyEvent(341, true);
+    }
+    private pressCtrlUp () {
         this.ci.sendKeyEvent(341, false);
     }
-    private toggleAltOn () {
+    private pressAltDown () {
         this.ci.sendKeyEvent(342, true);
+    }
+    private pressAltUp () {
         this.ci.sendKeyEvent(342, false);
     }
-    private toggleAltOff () {
-        this.ci.sendKeyEvent(342, true);
-        this.ci.sendKeyEvent(342, false);
-    }
-    private pressTab () {
+    private pressTabDown () {
         this.ci.sendKeyEvent(258, true);
+    }
+    private pressTabUp () {
         this.ci.sendKeyEvent(258, false);
     }
 
     public actions = {
         getFrame: async () => { return this.currentFrame; },
-        pEnter: async () => { this.pressEnter(); return 0; },
-        pKeyW: async () => { this.pressUp(); return 0; },
-        pKeyS: async () => { this.pressDown(); return 0; },
-        pKeyA: async () => { this.pressLeft(); return 0; },
-        pKeyD: async () => { this.pressRight(); return 0; },
-        pKeyJ: async () => { this.pressCtrl(); return 0; },
-        pKeyKOn: async () => { this.toggleAltOn(); return 0; },
-        pKeyKOff: async () => { this.toggleAltOff(); return 0; },
-        pKeyM: async () => { this.pressTab(); return 0; },
+        pEnterDown: async () => { this.pressEnterDown(); return 0; },
+        pEnterUp: async () => { this.pressEnterUp(); return 0; },
+        pKeyWDown: async () => { this.pressUpDown(); return 0; },
+        pKeyWUp: async () => { this.pressUpUp(); return 0; },
+        pKeySDown: async () => { this.pressDownDown(); return 0; },
+        pKeySUp: async () => { this.pressDownUp(); return 0; },
+        pKeyADown: async () => { this.pressLeftDown(); return 0; },
+        pKeyAUp: async () => { this.pressLeftUp(); return 0; },
+        pKeyDDown: async () => { this.pressRightDown(); return 0; },
+        pKeyDUp: async () => { this.pressRightUp(); return 0; },
+        pKeyJDown: async () => { this.pressCtrlDown(); return 0; },
+        pKeyJUp: async () => { this.pressCtrlUp(); return 0; },
+        pKeyMDown: async () => { this.pressTabDown(); return 0; },
+        pKeyMUp: async () => { this.pressTabUp(); return 0; },
+        pKeyUDown: async () => { this.pressAltDown(); return 0; },
+        pKeyUUp: async () => { this.pressTabUp(); return 0; },
             
 
             

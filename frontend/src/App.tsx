@@ -33,12 +33,23 @@ const App: React.FC = () => {
   }, []);
 
   const handler = async (event : any) => {
+     
+  };
+
+  document.addEventListener('keydown', function(event : any) {
     if(clientRef.current){
       let key = event.code;
-      let testKey = await clientRef.current.invoke("doomonlisk:p" + key);
+      let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Down");
       console.log(event.code);
-    }       
-  };
+    }  
+  });
+  document.addEventListener('keyup', function(event : any) {
+    if(clientRef.current){
+      let key = event.code;
+      let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Up");
+      console.log(event.code);
+    }  
+  });
 
   const drawFrame = async (frameData : any) => {
     if (canvasRef.current) {
