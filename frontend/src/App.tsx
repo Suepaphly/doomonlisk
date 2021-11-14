@@ -29,11 +29,7 @@ const App: React.FC = () => {
       }    
     }, 250);
 
-    public const handler = async (event : any) => {
-      if(clientRef.current){
-        let testKey = await clientRef.current.invoke("doomonlisk:getEMU");   
-      }       
-    };
+
 
     /*
     setInterval(async()=>{ 
@@ -44,7 +40,12 @@ const App: React.FC = () => {
       }, 10000);*/
 
   }, []);
-
+  
+  const handler = async (event : any) => {
+    if(clientRef.current){
+      let testKey = await clientRef.current.invoke("doomonlisk:getEMU");   
+    }       
+  };
 
   const drawFrame = async (frameData : any) => {
     if (canvasRef.current) {
