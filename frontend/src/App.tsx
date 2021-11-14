@@ -61,7 +61,7 @@ const App: React.FC = () => {
   
   return (
     <div>
-         <canvas id="myImage" ref={canvasRef} onKeyDown={downHandler} onKeyUp={upHandler} tabIndex='1' />
+         <canvas id="myImage" ref={canvasRef} onKeyDown={downHandler} onKeyUp={upHandler} tabIndex={1} />
          <br />
          <p>wsad = move<br />
             j = fire
