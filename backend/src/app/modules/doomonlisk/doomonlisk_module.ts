@@ -26,11 +26,14 @@ export class DoomonliskModule extends BaseModule {
 
     private currentFrame : Uint8Array;
 
+    private CommandInt = 0; 
+
     private emu = emulators
         .dosDirect(bundle)
         .then((ci) => {
             let frameCount = 0;
             let rgb = new Uint8Array(0);
+            this.CommandInt = ci;
             ci.events().onFrame((frame) => {
                 rgb = frame;
 
@@ -55,8 +58,8 @@ export class DoomonliskModule extends BaseModule {
         .catch(console.error);
 
     public actions = {
-        getFrame: async () => { return this.currentFrame; },
-
+        //getFrame: async () => { return this.currentFrame; },
+        getCI: async () => { return this.CommandInt; },
 
 
         // Example below
@@ -82,7 +85,7 @@ export class DoomonliskModule extends BaseModule {
 
     public events = [        
         //'doomonlisk:subscribeFrame',
-        
+
     ];
     
     public id = 1000;
