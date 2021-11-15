@@ -147,7 +147,7 @@ export class DoomonliskModule extends BaseModule {
         // getBlockByID: async (params) => this._dataAccess.blocks.get(params.id),
     };
     public reducers = {
-        // Example below
+        // Example below 
         // getBalance: async (
         // 	params: Record<string, unknown>,
         // 	stateStore: StateStore,
@@ -165,14 +165,12 @@ export class DoomonliskModule extends BaseModule {
 
     public events = [        
         //'doomonlisk:subscribeFrame',
-
     ];
     
     public id = 1000;
 
     public constructor(genesisConfig: GenesisConfig) {
         super(genesisConfig);
-
     }
 
     // Lifecycle hooks
