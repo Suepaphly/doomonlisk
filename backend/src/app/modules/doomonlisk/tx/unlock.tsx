@@ -1,6 +1,6 @@
 const { BaseAsset } = require("lisk-sdk");
 const { createUnlockControlsSchema } = require('../schemas');
-const { unlockControlsID } = require('../constants');
+const { unlockControlsID, HOST_PAYMENT_ADDRESS } = require('../constants');
 
 // extend base asset to implement the custom asset
 class unlockControls extends BaseAsset { 
