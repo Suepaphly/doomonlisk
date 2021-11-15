@@ -51,10 +51,11 @@ const App: React.FC = () => {
       const context = canvas.getContext('2d');
       if (context && frameData) {
         
-         const imageData = new ImageData(Uint8ClampedArray.from(Object.values(frameData)), 320, 200);
+         //const imageData = new ImageData(Uint8ClampedArray.from(Object.values(frameData)), 320, 200);
 
         context.clearRect(0, 0, 320, 200);
-        context.putImageData(imageData, 0, 0); 
+        //context.putImageData(imageData, 0, 0);
+        context.putImageData(frameData, 0, 0);  
       }
   }
 };

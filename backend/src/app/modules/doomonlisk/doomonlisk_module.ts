@@ -46,8 +46,9 @@ export class DoomonliskModule extends BaseModule {
                     rgba[next * 4 + 2] = rgb[next * 3 + 2];
                     rgba[next * 4 + 3] = 255;
                 }
-            
-                this.currentFrame = rgba;
+                
+                const imageData = new ImageData(Uint8ClampedArray.from(Object.values(rgba)), 320, 200);
+                this.currentFrame = imageData;
                 //this._channel.publish('doomonlisk:subscribeFrame', { data : rgba });
                 //This would be cool, if it worked. 
 
