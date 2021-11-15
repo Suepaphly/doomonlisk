@@ -20,7 +20,7 @@ emulators.pathPrefix = "./";
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/backend/src/app/modules/doomonlisk/doom.jsdos");
 
 
-const { unlockControlsID, HOST_PAYMENT_ADDRESS } = require('../constants');
+const { unlockControlsID, HOST_PAYMENT_ADDRESS } = require('./constants');
 
 
 
