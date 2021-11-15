@@ -18,6 +18,10 @@ class unlockControls extends BaseAsset {
         const sender = await stateStore.account.get(transaction.senderAddress);
         const amount = await stateStore.account.get(transaction.amount);
        
+        const wrongAccount = asset.friends.find(f => f === HOST_PAYMENT_ADDRESS);
+        if (sameAccount) {
+            throw new Error('You cannot add yourself to your own friend list.');
+        }
 
 
         // Add blocks to the timer

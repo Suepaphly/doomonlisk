@@ -26,10 +26,12 @@ export class DoomonliskModule extends BaseModule {
 
     private currentFrame : Uint8Array;
 
+    private isUnlocked : boolean;
+
     private emu = emulators
         .dosDirect(bundle)
         .then((ci) => {
-            let frameCount = 0;
+            let isUnlocked = false;
             let rgb = new Uint8Array(0);
             this.ci = ci;
             ci.events().onFrame((frame) => {
@@ -63,62 +65,81 @@ export class DoomonliskModule extends BaseModule {
         .catch(console.error);
 
     private pressEnterDown () {
-        this.ci.sendKeyEvent(257, true);
+        if(isUnlocked)
+            this.ci.sendKeyEvent(257, true);
     }
     private pressEnterUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(257, false);
     }
     private pressUpDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(265, true);
     }
     private pressUpUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(265, false);
     }
     private pressDownDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(264, true);
     }
     private pressDownUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(264, false);
     }
     private pressLeftDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(263, true);
     }
     private pressLeftUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(263, false);
     }
     private pressRightDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(262, true);
     }
     private pressRightUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(262, false);
     }
     private pressCtrlDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(341, true);
     }
     private pressCtrlUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(341, false);
     }
     private pressAltDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(342, true);
     }
     private pressAltUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(342, false);
     }
     private pressTabDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(258, true);
     }
     private pressTabUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(258, false);
     }
     private pressSpaceDown () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(32, true);
     }
     private pressSpaceUp () {
+        if(isUnlocked)
         this.ci.sendKeyEvent(32, false);
     }
 
     public actions = {
         getFrame: async () => { return this.currentFrame; },
+        
         pEnterDown: async () => { this.pressEnterDown(); return 0; },
         pEnterUp: async () => { this.pressEnterUp(); return 0; },
         pKeyWDown: async () => { this.pressUpDown(); return 0; },
@@ -137,7 +158,9 @@ export class DoomonliskModule extends BaseModule {
         pKeyKUp: async () => { this.pressAltUp(); return 0; },
         pKeyFDown: async () => { this.pressSpaceDown(); return 0; },
         pKeyFUp: async () => { this.pressSpaceUp(); return 0; },
-            
+        
+        openLock: async () => { this.isUnlocked = true; return 1; }
+        closeLock: async () => { this.isUnlocked = false; return 1; }
 
             
 
