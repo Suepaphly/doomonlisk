@@ -159,8 +159,8 @@ export class DoomonliskModule extends BaseModule {
         pKeyFDown: async () => { this.pressSpaceDown(); return 0; },
         pKeyFUp: async () => { this.pressSpaceUp(); return 0; },
         
-        openLock: async () => { this.isUnlocked = true; return 1; }
-        closeLock: async () => { this.isUnlocked = false; return 1; }
+        openLock: async () => { this.isUnlocked = true; return 1; },
+        closeLock: async () => { this.isUnlocked = false; return 1; },
 
             
 
@@ -184,7 +184,9 @@ export class DoomonliskModule extends BaseModule {
         // },
     };
     public name = 'doomonlisk';
-    public transactionAssets = [];
+    public transactionAssets = [
+        new unlockControls(),
+    ];
 
     public events = [        
         //'doomonlisk:subscribeFrame',

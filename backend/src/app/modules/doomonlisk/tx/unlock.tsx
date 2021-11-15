@@ -19,8 +19,9 @@ class unlockControls extends BaseAsset {
         const sender = await stateStore.account.get(transaction.senderAddress);
         const amount = await stateStore.account.get(transaction.amount);
         const name = await stateStore.account.get(transaction.playerName);
-       
-        if (sender === HOST_PAYMENT_ADDRESS) {
+        const recipient = await stateStore.account.getOrDefault<TokenAccount>(asset.recipientAddress);
+
+        if (recipient === HOST_PAYMENT_ADDRESS) {
             throw new Error('You must pay the Host Address to Play.');
         }
 
