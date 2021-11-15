@@ -9,6 +9,8 @@ import {
     // GenesisConfig
 } from 'lisk-sdk';
 
+const unlockControls = require('./tx/unlock')
+
 const fs = require("fs");
 const jimp = require("jimp");
 
