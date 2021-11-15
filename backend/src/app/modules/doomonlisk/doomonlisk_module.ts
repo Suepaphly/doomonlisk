@@ -34,7 +34,7 @@ export class DoomonliskModule extends BaseModule {
             this.ci = ci;
             ci.events().onFrame((frame) => {
                 rgb = frame;
-
+                console.log(typeof frame);
                 this.currentFrame = rgb;
                 const width = ci.width();
                 const height = ci.height();
