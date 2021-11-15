@@ -116,6 +116,12 @@ export class DoomonliskModule extends BaseModule {
     private pressSpaceUp () {
         this.ci.sendKeyEvent(32, false);
     }
+    private pressEscDown () {
+        this.ci.sendKeyEvent(32, true);
+    }
+    private pressEscUp () {
+        this.ci.sendKeyEvent(32, false);
+    }
 
     public actions = {
         getFrame: async () => { return this.currentFrame; },
@@ -137,6 +143,8 @@ export class DoomonliskModule extends BaseModule {
         pKeyKUp: async () => { this.pressAltUp(); return 0; },
         pKeyFDown: async () => { this.pressSpaceDown(); return 0; },
         pKeyFUp: async () => { this.pressSpaceUp(); return 0; },
+        pKeyBDown: async () => { this.pressEscDown(); return 0; },
+        pKeyBUp: async () => { this.pressEscUp(); return 0; },
             
 
             
