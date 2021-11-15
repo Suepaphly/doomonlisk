@@ -89,6 +89,7 @@ const App: React.FC = () => {
             k = strafe
             m = map
             f = interact (open doors)
+            b = Menu (reset game)
           </p>
     </div>
          
