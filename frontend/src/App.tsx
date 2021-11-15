@@ -53,7 +53,7 @@ const App: React.FC = () => {
         
          const imageData = new ImageData(Uint8ClampedArray.from(Object.values(frameData)), 320, 200);
 
-        context.clearRect(0, 0, 320, 200);
+        //context.clearRect(0, 0, 320, 200);
         context.putImageData(imageData, 0, 0);
       }
   }
@@ -61,7 +61,7 @@ const App: React.FC = () => {
   
   return (
     <div>
-         <canvas id="myImage" ref={canvasRef} onKeyDown={downHandler} onKeyUp={upHandler} tabIndex={1} />
+         <canvas id="myImage" width={320} height={240} ref={canvasRef} onKeyDown={downHandler} onKeyUp={upHandler} tabIndex={1} />
          <br />
          <p>wsad = move<br />
             j = fire
