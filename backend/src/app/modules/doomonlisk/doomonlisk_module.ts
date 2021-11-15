@@ -20,6 +20,9 @@ emulators.pathPrefix = "./";
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/backend/src/app/modules/doomonlisk/doom.jsdos");
 
 
+const { unlockControlsID, HOST_PAYMENT_ADDRESS } = require('../constants');
+
+
 
 export class DoomonliskModule extends BaseModule {
 
@@ -190,6 +193,7 @@ export class DoomonliskModule extends BaseModule {
 
     public events = [        
         //'doomonlisk:subscribeFrame',
+        'doomonlisk:playerAdded',
     ];
     
     public id = 1000;
@@ -216,9 +220,18 @@ export class DoomonliskModule extends BaseModule {
         // const sender = await _input.stateStore.account.getOrDefault<TokenAccount>(_input.transaction.senderAddress);
     }
 
-    public async afterTransactionApply(_input: TransactionApplyContext) {
-        // Get any data from stateStore using transaction info, below is an example
-        // const sender = await _input.stateStore.account.getOrDefault<TokenAccount>(_input.transaction.senderAddress);
+    public async afterTransactionApply({transaction, stateStore, reducerHandler}) {
+        if (transaction.moduleID === this.id && transaction.assetID === unlockControlsID) {
+            let unlockControls = codec.decode(
+                createUnlockControlsSchema,
+                transaction.asset
+            );
+
+            this._channel.publish('doomonlisk:playerAdded', {
+                address: transaction._senderAddress.toString('hex'),
+                name: unlockControls.name,
+            });
+          } 
     }
 
     public async afterGenesisBlockApply(_input: AfterGenesisBlockApplyContext) {
