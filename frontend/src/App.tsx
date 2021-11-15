@@ -35,7 +35,18 @@ const App: React.FC = () => {
   const downHandler = async (event : any) => {
     if(clientRef.current){
       let key = event.code;
-      let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Down");
+      if(key == "Enter" ||
+         key == "KeyW" ||
+         key == "KeyS" ||
+         key == "KeyA" ||
+         key == "KeyD" ||
+         key == "KeyF" ||
+         key == "KeyJ" ||
+         key == "KeyK" ||
+         key == "KeyM" ||
+         key == "KeyB"){
+        let testKey = await clientRef.current.invoke("doomonlisk:p" + key + "Down");
+      }
     }       
   };
   const upHandler = async (event : any) => {
