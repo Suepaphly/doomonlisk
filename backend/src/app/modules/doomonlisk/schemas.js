@@ -1,5 +1,5 @@
 const createUnlockControlsSchema = {
-  $id: 'doom/unlock/controls',
+  $id: 'doom/controls',
   type: 'object',
   required: ['blocksLeft', 'playerName', 'amount'],
   properties: {
@@ -15,10 +15,5 @@ const createUnlockControlsSchema = {
       type: 'uint32',
       fieldNumber: 3,
     },   
-  },
-  default: { 
-      blocksLeft: 0,
-      playerName: "Anonymous",
-      amount: 0,
   },
 };
