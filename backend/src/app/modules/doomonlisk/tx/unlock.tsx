@@ -14,25 +14,28 @@ class unlockControls extends BaseAsset {
 		asset,
 		transaction,
 		stateStore,
+        reducerHandler,
 	}) {
         const sender = await stateStore.account.get(transaction.senderAddress);
         const amount = await stateStore.account.get(transaction.amount);
+        const name = await stateStore.account.get(transaction.playerName);
        
-        const wrongAccount = asset.friends.find(f => f === HOST_PAYMENT_ADDRESS);
-        if (sameAccount) {
-            throw new Error('You cannot add yourself to your own friend list.');
+        if (sender === HOST_PAYMENT_ADDRESS) {
+            throw new Error('You must pay the Host Address to Play.');
         }
 
 
         // Add blocks to the timer
         sender.doomonlisk.config.blocksLeft = Math.round(amount);
         // Add default name
-        sender.doomonlisk.config.playerName = "Anonymous";
-       
-        // Set the deposit based on number of friends, 10 + friends.length * 2
-        const deposit = BigInt(BASE_RECOVERY_DEPOSIT) + BigInt(transactions.convertLSKToBeddows((sender.srs.config.friends.length * FRIEND_FACTOR_FEE).toString()));
-        sender.srs.config.deposit = deposit;
-        // Save the value in stateStore
+        if(name){
+            sender.doomonlisk.config.playerName = name;
+        } else {
+            sender.doomonlisk.config.playerName = "NewPlayer";
+        }
+
+        const startPlay = await reducerHandler.invoke('doomonlisk:openLock');
+
         await stateStore.account.set(sender.address, sender);
     }
 
