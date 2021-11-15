@@ -15,7 +15,5 @@ const createUnlockControlsSchema = {
   default: { 
       blocksLeft: 0,
       playerName: "Anonymous",
-      initValue: 1,
-      name: "",
   },
 };
