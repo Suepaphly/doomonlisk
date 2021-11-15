@@ -35,10 +35,13 @@ export class DoomonliskModule extends BaseModule {
             ci.events().onFrame((frame) => {
                 rgb = frame;
 
+                this.currentFrame = rgb;
                 const width = ci.width();
                 const height = ci.height();
             
                 const rgba = new Uint8Array(width * height * 4);
+
+
                 for (let next = 0; next < width * height; ++next) {
                     rgba[next * 4 + 0] = rgb[next * 3 + 0];
                     rgba[next * 4 + 1] = rgb[next * 3 + 1];
