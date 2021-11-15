@@ -1,4 +1,3 @@
-import Routes from "./Routes";
 import React, { useState, useEffect, useRef } from "react";
 import AppLayout from "./components/Layout";
 import { getClient } from "./utils/api";
