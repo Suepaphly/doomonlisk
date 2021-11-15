@@ -9,8 +9,6 @@ import {
     // GenesisConfig
 } from 'lisk-sdk';
 
-const unlockControls = require('./tx/unlock')
-
 const fs = require("fs");
 const jimp = require("jimp");
 
@@ -22,7 +20,10 @@ emulators.pathPrefix = "./";
 const bundle = fs.readFileSync("/home/lisk/doomonlisk/backend/src/app/modules/doomonlisk/doom.jsdos");
 
 
+
+const unlockControls = require('./tx/unlock')
 const { unlockControlsID, HOST_PAYMENT_ADDRESS } = require('./constants');
+const { createUnlockControlsSchema } = require('./schemas');
 
 
 
