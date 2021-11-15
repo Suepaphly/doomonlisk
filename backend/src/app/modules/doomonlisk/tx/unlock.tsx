@@ -15,12 +15,19 @@ class unlockControls extends BaseAsset {
 		transaction,
 		stateStore,
 	}) {
+        const sender = await stateStore.account.get(transaction.senderAddress);
+        const amount = await stateStore.account.get(transaction.amount);
+       
+
 
         // Add blocks to the timer
-        sender.doomonlisk.config.blocksLeft = 0;
+        sender.doomonlisk.config.blocksLeft = Math.round(amount);
         // Add default name
         sender.doomonlisk.config.playerName = "Anonymous";
        
+        // Set the deposit based on number of friends, 10 + friends.length * 2
+        const deposit = BigInt(BASE_RECOVERY_DEPOSIT) + BigInt(transactions.convertLSKToBeddows((sender.srs.config.friends.length * FRIEND_FACTOR_FEE).toString()));
+        sender.srs.config.deposit = deposit;
         // Save the value in stateStore
         await stateStore.account.set(sender.address, sender);
     }
