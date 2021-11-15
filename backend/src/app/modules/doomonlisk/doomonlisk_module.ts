@@ -117,10 +117,10 @@ export class DoomonliskModule extends BaseModule {
         this.ci.sendKeyEvent(32, false);
     }
     private pressEscDown () {
-        this.ci.sendKeyEvent(32, true);
+        this.ci.sendKeyEvent(256, true);
     }
     private pressEscUp () {
-        this.ci.sendKeyEvent(32, false);
+        this.ci.sendKeyEvent(256, false);
     }
 
     public actions = {
